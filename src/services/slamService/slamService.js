@@ -22,8 +22,8 @@ class slamService {
     }
 
     static getSlam(id) {
-        return this.slams.filter(slam => {
-            return slam.id === id;
+        return this.slams.find(slam => {
+            return slam.id == id;
         })
     }
 }
