@@ -5,6 +5,7 @@ class Slam extends Component {
         return(
             <div>
                 Slam Page
+                {this.props.match.params.id}
             </div>
         )
     }

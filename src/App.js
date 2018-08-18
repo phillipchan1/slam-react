@@ -25,7 +25,7 @@ class App extends Component {
 						<Login />
 						<Route path="/slams" component={Slams}></Route>
 						<Route path="/user-profile" component={UserProfile}></Route>
-						<Route path="/slam" component={Slam}></Route>
+						<Route path="/slam/:id" component={Slam}></Route>
 					</div>
 				</div>
 			</Router>

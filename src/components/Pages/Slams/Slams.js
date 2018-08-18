@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Slam from '../../Molecules/Slam/Slam';
 import {BrowserRouter as Link, Route, Redirect} from 'react-router-dom';
+import slamService from '../../../services/slamService/slamService'
 
 class Slams extends Component {
     constructor(props) {
@@ -8,48 +9,42 @@ class Slams extends Component {
 
         this.state = {
             toSlam: false,
-
+            slams: [],
+            selectedSlam: null
         }
 
     }
-    slams = [
-        {
-            name: 'slam name',
-            description: 'description',
-            id: 1
-        },
-        {
-            name: 'slam name 2',
-            description: 'description',
-            id: 2
-        },
-        {
-            name: 'slam name 3',
-            description: 'description',
-            id: 3
-        }
-    ]
+
+    componentDidMount() {
+        this.setState({
+            slams: slamService.getSlams()
+        })
+    }
 
     handleSlamClick(slam) {
-        console.log('clicked');
         this.setState({
-            toSlam: true
+            toSlam: true,
+            selectedSlam: slam
         })
     }
 
     render() {
         if (this.state.toSlam === true) {
-            console.log('should redirect');
-          return <Redirect to='/slam' />
+            return <Redirect to={
+                {
+                    pathname: `/slam/${this.state.selectedSlam.id}`,
+                }
+            } />
         }
 
         return (
             <div className="slams">
                 this is the slam page
 
-                {this.slams.map((slam) => {
+                {this.state.slams.map((slam) => {
                     return (
-                        <Slam key={slam.id} name={slam.name} description={slam.description} onClick={() => {this.handleSlamClick(slam)}} />
+                        <Slam key={slam.id} name={slam.name} description={slam.description} onClick={() => {this.handleSlamClick(slam)}}>
+                        </Slam>
                     )
                 })}
             </div>
