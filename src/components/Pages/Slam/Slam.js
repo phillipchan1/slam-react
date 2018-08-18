@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SlamService from '../../../services/slamService/slamService';
 
-
 class Slam extends Component {
     constructor(props) {
         super(props)
