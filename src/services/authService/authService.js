@@ -18,7 +18,7 @@ class AuthService {
         return this.fakeUser;
     }
 
-    loggedIn = true;
+    isAuthenticated = false;
 }
 
 export default AuthService;
