@@ -1,4 +1,4 @@
-class slamService {
+class SlamService {
     static slams = [
         {
             name: 'slam name',
@@ -28,4 +28,4 @@ class slamService {
     }
 }
 
-export default slamService;
+export default SlamService;

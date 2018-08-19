@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Slam from '../../Molecules/Slam/Slam';
 import {BrowserRouter as Link, Route, Redirect} from 'react-router-dom';
-import slamService from '../../../services/slamService/slamService'
+import SlamService from '../../../services/SlamService/SlamService'
 
 class Slams extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class Slams extends Component {
 
     componentDidMount() {
         this.setState({
-            slams: slamService.getSlams()
+            slams: SlamService.getSlams()
         })
     }
 

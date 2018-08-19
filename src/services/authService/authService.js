@@ -1,5 +1,5 @@
-class authService {
+class AuthService {
     loggedIn = true;
 }
 
-export default authService;
+export default AuthService;

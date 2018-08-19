@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SlamService from '../../../services/slamService/slamService';
+import SlamService from '../../../services/SlamService/SlamService';
 
 class Slam extends Component {
     constructor(props) {

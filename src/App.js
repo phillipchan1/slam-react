@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 // services
-import authService from './services/authService/authService';
+import AuthService from './services/AuthService/AuthService';
 
 // components
 import Login from './components/Pages/Login/Login';
