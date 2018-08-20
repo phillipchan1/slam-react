@@ -13,15 +13,21 @@ class AuthService {
 	};
 
 	static login(credentials, cb) {
-		console.log(credentials);
 		if (
 			credentials.email === this.credentials.email &&
 			credentials.password === this.credentials.password
 		) {
 			this.isAuthenticated = true;
-			cb(true);
+
+			cb({
+				success: true,
+				message: ''
+			});
 		} else {
-			cb(false);
+			cb({
+				success: false,
+				message: 'Credentials Incorrect'
+			});
 		}
 	}
 

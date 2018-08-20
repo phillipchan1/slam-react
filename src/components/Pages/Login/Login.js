@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Button, Container, Checkbox, Form } from 'semantic-ui-react';
 import AuthService from '../../../services/AuthService/AuthService';
+import { Button, Container, Form, Message } from 'semantic-ui-react';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			loginSuccess: false
+		};
 		this.handleChange.bind(this);
 	}
 
@@ -21,18 +24,39 @@ class Login extends Component {
 	}
 
 	handleSubmit() {
-		AuthService.login(this.state, success => {
-			if (success) {
-				console.log('successfu');
+		AuthService.login(this.state, response => {
+			console.log(response);
+
+			if (response.success) {
+				this.setState({
+					loginSuccess: true
+				});
 			} else {
-				console.log('error');
+				this.setState({
+					errorMessage: response.message
+				});
 			}
 		});
 	}
 
 	render() {
+		// if login successful
+		if (this.state.loginSuccess === true) {
+			console.log('should redirect');
+			return <Redirect to="/slams" />;
+		}
+
+		// error messager handling
+		let errMessage;
+
+		if (this.state.errorMessage) {
+			errMessage = <Message>{this.state.errorMessage}</Message>;
+		} else {
+		}
 		return (
 			<Container>
+				{errMessage}
+
 				<Form onSubmit={this.handleSubmit.bind(this)}>
 					<Form.Field>
 						<label>Email</label>
