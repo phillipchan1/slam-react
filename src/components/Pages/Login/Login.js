@@ -21,7 +21,13 @@ class Login extends Component {
 	}
 
 	handleSubmit() {
-		AuthService.login(this.state);
+		AuthService.login(this.state, success => {
+			if (success) {
+				console.log('successfu');
+			} else {
+				console.log('error');
+			}
+		});
 	}
 
 	render() {

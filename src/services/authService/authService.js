@@ -7,10 +7,21 @@ class AuthService {
 		profilePicture: ''
 	};
 
-	static login(credentials) {
+	static credentials = {
+		email: 'phil',
+		password: 'phil'
+	};
+
+	static login(credentials, cb) {
 		console.log(credentials);
-		if (credentials) {
+		if (
+			credentials.email === this.credentials.email &&
+			credentials.password === this.credentials.password
+		) {
 			this.isAuthenticated = true;
+			cb(true);
+		} else {
+			cb(false);
 		}
 	}
 
