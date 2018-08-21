@@ -40,7 +40,12 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					<Navigation authStatus={this.isAuthenticated} />
+					<Navigation
+						isAuthenticated={this.state.isAuthenticated}
+						handleLogout={() => {
+							this.setState({ isAuthenticated: false });
+						}}
+					/>
 
 					<Container style={{ marginTop: '3em' }}>
 						<ProtectedRoute
@@ -48,7 +53,11 @@ class App extends Component {
 							component={Slams}
 							isAuthenticated={this.state.isAuthenticated}
 						/>
-						<Route path="/user-profile" component={UserProfile} />
+						<ProtectedRoute
+							path="/user-profile"
+							component={UserProfile}
+							isAuthenticated={this.state.isAuthenticated}
+						/>
 						<Route path="/slam/:id" component={Slam} />
 						<Route
 							path="/login"

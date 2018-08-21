@@ -17,8 +17,6 @@ class AuthService {
 			credentials.email === this.credentials.email &&
 			credentials.password === this.credentials.password
 		) {
-			this.isAuthenticated = true;
-
 			cb({
 				success: true,
 				message: ''
@@ -32,14 +30,12 @@ class AuthService {
 	}
 
 	static logout() {
-		this.isAuthenticated = false;
+		this.props.handleLogout();
 	}
 
 	static getCurentUser() {
 		return this.fakeUser;
 	}
-
-	isAuthenticated = false;
 }
 
 export default AuthService;
