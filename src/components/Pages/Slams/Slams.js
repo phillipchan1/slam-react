@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Slam from '../../Molecules/Slam/Slam';
-import {BrowserRouter as Link, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter as Redirect} from 'react-router-dom';
 import SlamService from '../../../services/SlamService/SlamService'
 
 class Slams extends Component {

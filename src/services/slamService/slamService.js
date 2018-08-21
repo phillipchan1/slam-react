@@ -23,7 +23,7 @@ class SlamService {
 
     static getSlam(id) {
         return this.slams.find(slam => {
-            return slam.id == id;
+            return slam.id === id;
         })
     }
 }
