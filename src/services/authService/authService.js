@@ -29,10 +29,6 @@ class AuthService {
 		}
 	}
 
-	static logout() {
-		this.props.handleLogout();
-	}
-
 	static getCurentUser() {
 		return this.fakeUser;
 	}
