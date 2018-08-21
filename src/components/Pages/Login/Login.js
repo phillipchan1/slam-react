@@ -31,6 +31,8 @@ class Login extends Component {
 				this.setState({
 					loginSuccess: true
 				});
+
+				this.props.successfulLogin();
 			} else {
 				this.setState({
 					errorMessage: response.message
