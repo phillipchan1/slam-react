@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-	BrowserRouter as Router,
-	Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // pages
 import Login from './components/Pages/Login/Login';
@@ -21,7 +18,7 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			isAuthenticated: false
+			isAuthenticated: true
 		};
 	}
 
