@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import Slam from '../../Molecules/Slam/Slam';
 import { BrowserRouter as Redirect } from 'react-router-dom';
 import SlamService from '../../../services/SlamService/SlamService';
-import { Menu, Container, Button, Form, Input } from 'semantic-ui-react';
+import {
+	Menu,
+	Container,
+	Button,
+	Card,
+	Form,
+	Input,
+	Grid,
+	Segment
+} from 'semantic-ui-react';
 
 class Slams extends Component {
 	constructor(props) {
@@ -32,8 +41,6 @@ class Slams extends Component {
 
 	handleSearchOnChange(e) {
 		if (e.target.value.length > 0) {
-			console.log('shoudl show search');
-
 			this.setState({
 				searchActive: true,
 				searchTerm: e.target.value
@@ -81,18 +88,29 @@ class Slams extends Component {
 						</Menu.Menu>
 					</Menu>
 				</Container>
-				{this.state.slams.map(slam => {
-					return (
-						<Slam
-							key={slam.id}
-							name={slam.name}
-							description={slam.description}
-							onClick={() => {
-								this.handleSlamClick(slam);
-							}}
-						/>
-					);
-				})}
+				<Container style={{ marginTop: '3em' }}>
+					<Grid columns={2} stackable>
+						<Grid.Column width={10}>
+							<Card.Group>
+								{this.state.slams.map(slam => {
+									return (
+										<Slam
+											key={slam.id}
+											name={slam.name}
+											description={slam.description}
+											onClick={() => {
+												this.handleSlamClick(slam);
+											}}
+										/>
+									);
+								})}
+							</Card.Group>
+						</Grid.Column>
+						<Grid.Column width={6}>
+							<Segment>Content</Segment>
+						</Grid.Column>
+					</Grid>
+				</Container>
 			</div>
 		);
 	}

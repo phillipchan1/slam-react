@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Container } from 'semantic-ui-react';
 
 class Navigation extends Component {
 	render() {
@@ -19,17 +19,19 @@ class Navigation extends Component {
 		}
 		return (
 			<div>
-				<Menu>
-					<Menu.Item>
-						<Link to={`/slams`}>Slams</Link>
-					</Menu.Item>
-					<Menu.Menu position="right">
+				<Container>
+					<Menu secondary>
 						<Menu.Item>
-							<Link to={`/user-profile`}>User Profile</Link>
+							<Link to={`/slams`}>Slams</Link>
 						</Menu.Item>
-						{loginActionButton}
-					</Menu.Menu>
-				</Menu>
+						<Menu.Menu position="right">
+							<Menu.Item>
+								<Link to={`/user-profile`}>User Profile</Link>
+							</Menu.Item>
+							{loginActionButton}
+						</Menu.Menu>
+					</Menu>
+				</Container>
 			</div>
 		);
 	}
