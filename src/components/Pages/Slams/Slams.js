@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slam from '../../Molecules/Slam/Slam';
-import { BrowserRouter as Redirect } from 'react-router-dom';
+import { BrowserRouter as Redirect, Link } from 'react-router-dom';
 import SlamService from '../../../services/SlamService/SlamService';
 import {
 	Menu,
@@ -83,7 +83,9 @@ class Slams extends Component {
 								/>
 							</Form>
 							<Menu.Item>
-								<Button>New Slam</Button>
+								<Button>
+									<Link to={`/add-edit-slam`}>New Slam</Link>
+								</Button>
 							</Menu.Item>
 						</Menu.Menu>
 					</Menu>
