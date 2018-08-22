@@ -8,8 +8,11 @@ class UserService {
 			'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
 	};
 
-	static updateUser(newProperties) {
+	static updateUser(newProperties, cb) {
+		console.log('newProperties', newProperties);
 		this.fakeUser = Object.assign(this.fakeUser, newProperties);
+
+		cb(this.fakeUser);
 	}
 
 	static getUser() {

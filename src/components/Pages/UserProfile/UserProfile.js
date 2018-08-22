@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import UserService from '../../../services/UserService/UserService';
-import { Container, Form, Button } from 'semantic-ui-react';
+import { Container, Form, Button, Message } from 'semantic-ui-react';
 
 class UserProfile extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			currentUser: {}
+			currentUser: {},
+			successfullyUpdated: false
 		};
 	}
 
@@ -27,12 +28,21 @@ class UserProfile extends Component {
 	}
 
 	handleProfileUpdate() {
-		UserService.updateUser(this.state.currentUser);
+		UserService.updateUser(this.state.currentUser, () => {
+			this.setState({
+				successfullyUpdated: true
+			});
+		});
 	}
 
 	render() {
 		return (
 			<Container>
+				{this.state.successfullyUpdated ? (
+					<Message info>Succesfully Updated</Message>
+				) : (
+					''
+				)}
 				<Form>
 					<Form.Field>
 						<label> Name</label>
@@ -48,6 +58,7 @@ class UserProfile extends Component {
 						<Form.TextArea
 							value={this.state.currentUser.description}
 							placeholder="Tell us more about you..."
+							name="description"
 							onChange={this.handleChange.bind(this)}
 						/>
 					</Form.Field>
