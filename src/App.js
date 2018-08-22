@@ -41,11 +41,8 @@ class App extends Component {
 					/>
 
 					<Container style={{ marginTop: '3em' }}>
-						<ProtectedRoute
-							path="/slams"
-							component={Slams}
-							isAuthenticated={this.state.isAuthenticated}
-						/>
+						<Route path="/" exact component={Slams} />
+						<Route path="/slams" component={Slams} />
 						<ProtectedRoute
 							path="/user-profile"
 							component={UserProfile}
