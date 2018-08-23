@@ -78,7 +78,13 @@ class Slams extends Component {
 							<Card.Group>
 								{this.state.slams.map(slam => {
 									return (
-										<Link to={`/slam/${slam.id}`}>
+										<Link
+											to={`/slam/${slam.id}`}
+											style={{
+												width: '100%',
+												marginBottom: '1em'
+											}}
+										>
 											<Slam {...slam} />
 										</Link>
 									);
