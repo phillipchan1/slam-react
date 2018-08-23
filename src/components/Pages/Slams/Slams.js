@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Slam from '../../Molecules/Slam/Slam';
-import { BrowserRouter as Redirect, Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import SlamService from '../../../services/SlamService/SlamService';
 import {
 	Menu,
 	Container,
+	Header,
 	Button,
 	Card,
 	Form,
@@ -53,7 +54,7 @@ class Slams extends Component {
 	}
 
 	render() {
-		if (this.state.toSlam === true) {
+		if (this.state.toSlam == true) {
 			return (
 				<Redirect
 					to={{
@@ -68,11 +69,16 @@ class Slams extends Component {
 				<Container>
 					<Menu secondary>
 						<Menu.Menu>
+							<Menu.Item>
+								<Button>
+									<Link to={`/add-edit-slam`}>New Slam</Link>
+								</Button>
+							</Menu.Item>
+						</Menu.Menu>
+						<Menu.Menu position="right">
 							{this.state.searchActive
 								? `Searching for ${this.state.searchTerm}`
 								: ''}
-						</Menu.Menu>
-						<Menu.Menu position="right">
 							<Form>
 								<Input
 									icon="search"
@@ -82,11 +88,6 @@ class Slams extends Component {
 									)}
 								/>
 							</Form>
-							<Menu.Item>
-								<Button>
-									<Link to={`/add-edit-slam`}>New Slam</Link>
-								</Button>
-							</Menu.Item>
 						</Menu.Menu>
 					</Menu>
 				</Container>
@@ -97,9 +98,7 @@ class Slams extends Component {
 								{this.state.slams.map(slam => {
 									return (
 										<Slam
-											key={slam.id}
-											name={slam.name}
-											description={slam.description}
+											{...slam}
 											onClick={() => {
 												this.handleSlamClick(slam);
 											}}
@@ -109,7 +108,9 @@ class Slams extends Component {
 							</Card.Group>
 						</Grid.Column>
 						<Grid.Column width={6}>
-							<Segment>Content</Segment>
+							<Container>
+								<Header as="h2">Slams You're In</Header>
+							</Container>
 						</Grid.Column>
 					</Grid>
 				</Container>

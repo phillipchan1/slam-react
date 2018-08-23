@@ -36,13 +36,17 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					<Navigation
-						isAuthenticated={this.state.isAuthenticated}
-						currentUser={this.state.currentUser}
-						handleLogout={() => {
-							this.setState({ isAuthenticated: false });
-						}}
-					/>
+					<Container style={{ marginTop: '2em' }}>
+						<Navigation
+							isAuthenticated={this.state.isAuthenticated}
+							currentUser={this.state.currentUser}
+							handleLogout={() => {
+								this.setState({
+									isAuthenticated: false
+								});
+							}}
+						/>
+					</Container>
 
 					<Container style={{ marginTop: '3em' }}>
 						<Route path="/" exact component={Slams} />

@@ -5,24 +5,21 @@ class Slam extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			slam: {}
-		};
+		this.state = {};
 	}
 
 	componentDidMount() {
-		this.setState({
-			slam: SlamService.getSlam(this.props.match.params.id)
-		});
+		console.log(SlamService.getSlam(this.props.match.params.id));
+		this.setState(SlamService.getSlam(this.props.match.params.id));
 	}
 
 	render() {
 		return (
 			<div>
 				Slam Page
-				{this.state.slam.id}
-				{this.state.slam.name}
-				{this.state.slam.description}
+				{this.state.id}
+				{this.state.name}
+				{this.state.description}
 			</div>
 		);
 	}

@@ -7,6 +7,10 @@
   .avatar:hover {
     cursor: pointer; }
 
+.ui.cards .card.slam {
+  padding: 1rem;
+  text-align: left; }
+
 .App {
   text-align: center; }
 
