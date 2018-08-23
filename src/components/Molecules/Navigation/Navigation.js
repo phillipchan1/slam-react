@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NewPostButtonModal from '../NewPostButtonModal/NewPostButtonModal';
 import { Link } from 'react-router-dom';
 import { Menu, Container, Dropdown } from 'semantic-ui-react';
 
@@ -9,6 +10,8 @@ class Navigation extends Component {
 		if (this.props.isAuthenticated) {
 			loginActionButton = (
 				<Menu.Menu position="right">
+					<NewPostButtonModal />
+
 					<Dropdown button text="Username">
 						<Dropdown.Menu>
 							<Dropdown.Item text="User Profile">
