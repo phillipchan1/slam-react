@@ -19,9 +19,7 @@ class Slams extends Component {
 		super(props);
 
 		this.state = {
-			toSlam: false,
 			slams: [],
-			selectedSlam: null,
 			searchActive: false,
 			searchTerm: ''
 		};
@@ -30,13 +28,6 @@ class Slams extends Component {
 	componentDidMount() {
 		this.setState({
 			slams: SlamService.getSlams()
-		});
-	}
-
-	handleSlamClick(slam) {
-		this.setState({
-			toSlam: true,
-			selectedSlam: slam
 		});
 	}
 
@@ -54,16 +45,6 @@ class Slams extends Component {
 	}
 
 	render() {
-		if (this.state.toSlam == true) {
-			return (
-				<Redirect
-					to={{
-						pathname: `/slam/${this.state.selectedSlam.id}`
-					}}
-				/>
-			);
-		}
-
 		return (
 			<div className="slams">
 				<Container>
@@ -97,12 +78,9 @@ class Slams extends Component {
 							<Card.Group>
 								{this.state.slams.map(slam => {
 									return (
-										<Slam
-											{...slam}
-											onClick={() => {
-												this.handleSlamClick(slam);
-											}}
-										/>
+										<Link to={`/slam/${slam.id}`}>
+											<Slam {...slam} />
+										</Link>
 									);
 								})}
 							</Card.Group>

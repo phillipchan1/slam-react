@@ -31,7 +31,7 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 3
+			id: 4
 		},
 		{
 			name: 'slam name 5',
@@ -39,7 +39,7 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 3
+			id: 5
 		},
 		{
 			name: 'slam name 6',
@@ -47,7 +47,7 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 3
+			id: 6
 		}
 	];
 
