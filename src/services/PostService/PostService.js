@@ -3,22 +3,26 @@ class PostService {
 		{
 			post: 'this is a sample post',
 			author: 'username',
-			postDate: new Date()
+			postDate: new Date(),
+			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
 			author: 'username',
-			postDate: new Date()
+			postDate: new Date(),
+			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
 			author: 'username',
-			postDate: new Date()
+			postDate: new Date(),
+			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
 			author: 'username',
-			postDate: new Date()
+			postDate: new Date(),
+			type: 'post'
 		}
 	];
 

@@ -7,7 +7,8 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 1
+			id: 1,
+			type: 'slam'
 		},
 		{
 			name: 'slam name 2',
@@ -15,7 +16,8 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 2
+			id: 2,
+			type: 'slam'
 		},
 		{
 			name: 'slam name 3',
@@ -23,7 +25,8 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 3
+			id: 3,
+			type: 'slam'
 		},
 		{
 			name: 'slam name 4',
@@ -31,7 +34,8 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 4
+			id: 4,
+			type: 'slam'
 		},
 		{
 			name: 'slam name 5',
@@ -39,7 +43,8 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 5
+			id: 5,
+			type: 'slam'
 		},
 		{
 			name: 'slam name 6',
@@ -47,7 +52,8 @@ class SlamService {
 			slots: 8,
 			slotsFilled: 3,
 			active: true,
-			id: 6
+			id: 6,
+			type: 'slam'
 		}
 	];
 
