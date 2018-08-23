@@ -7,6 +7,7 @@ import Login from './components/Pages/Login/Login';
 import UserProfile from './components/Pages/UserProfile/UserProfile';
 import Slams from './components/Pages/Slams/Slams';
 import Slam from './components/Pages/Slam/Slam';
+import Posts from './components/Pages/Posts/Posts';
 import ProtectedRoute from './components/Pages/ProtectedRoute/ProtectedRoute';
 
 // components
@@ -19,7 +20,8 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			isAuthenticated: true
+			isAuthenticated: true,
+			currentUser: {}
 		};
 	}
 
@@ -36,6 +38,7 @@ class App extends Component {
 				<div className="App">
 					<Navigation
 						isAuthenticated={this.state.isAuthenticated}
+						currentUser={this.state.currentUser}
 						handleLogout={() => {
 							this.setState({ isAuthenticated: false });
 						}}
@@ -44,6 +47,7 @@ class App extends Component {
 					<Container style={{ marginTop: '3em' }}>
 						<Route path="/" exact component={Slams} />
 						<Route path="/slams" component={Slams} />
+						<Route path="/posts" component={Posts} />
 						<ProtectedRoute
 							path="/user-profile"
 							component={UserProfile}

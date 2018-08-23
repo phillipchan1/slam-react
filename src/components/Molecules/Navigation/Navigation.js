@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Container } from 'semantic-ui-react';
+import { Menu, Container, Dropdown } from 'semantic-ui-react';
 
 class Navigation extends Component {
 	render() {
@@ -8,13 +8,27 @@ class Navigation extends Component {
 
 		if (this.props.isAuthenticated) {
 			loginActionButton = (
-				<Menu.Item onClick={this.props.handleLogout}>Logout</Menu.Item>
+				<Menu.Menu position="right">
+					<Dropdown button text="Username">
+						<Dropdown.Menu>
+							<Dropdown.Item text="User Profile">
+								<Link to={`/user-profile`}>User Profile</Link>
+							</Dropdown.Item>
+							<Dropdown.Item
+								text="Log Out"
+								onClick={this.props.handleLogout}
+							/>
+						</Dropdown.Menu>
+					</Dropdown>
+				</Menu.Menu>
 			);
 		} else {
 			loginActionButton = (
-				<Menu.Item>
-					<Link to={`/login`}>Login</Link>
-				</Menu.Item>
+				<Menu.Menu position="right">
+					<Menu.Item>
+						<Link to={`/login`}>Login</Link>
+					</Menu.Item>
+				</Menu.Menu>
 			);
 		}
 		return (
@@ -22,14 +36,13 @@ class Navigation extends Component {
 				<Container>
 					<Menu secondary>
 						<Menu.Item>
+							<Link to={`/posts`}>Posts</Link>
+						</Menu.Item>
+						<Menu.Item>
 							<Link to={`/slams`}>Slams</Link>
 						</Menu.Item>
-						<Menu.Menu position="right">
-							<Menu.Item>
-								<Link to={`/user-profile`}>User Profile</Link>
-							</Menu.Item>
-							{loginActionButton}
-						</Menu.Menu>
+
+						{loginActionButton}
 					</Menu>
 				</Container>
 			</div>

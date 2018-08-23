@@ -1,3 +1,12 @@
+.avatar {
+  border-radius: 50%;
+  background: #efefef;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .avatar:hover {
+    cursor: pointer; }
+
 .App {
   text-align: center; }
 
