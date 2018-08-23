@@ -35,6 +35,7 @@ class NewPostButtonModal extends Component {
 	render() {
 		return (
 			<Modal
+				onClose={this.handleClose}
 				trigger={
 					<Button primary onClick={this.handleOpen}>
 						<Icon icon={pencil} style={{ marginRight: '0.5em' }} />
