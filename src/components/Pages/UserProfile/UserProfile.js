@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import UserService from '../../../services/UserService/UserService';
-import { Container, Form, Button, Message } from 'semantic-ui-react';
+import {
+	Container,
+	Form,
+	Button,
+	Message,
+	Header,
+	Divider
+} from 'semantic-ui-react';
+import UserAvatar from 'react-user-avatar';
 
 class UserProfile extends Component {
 	constructor(props) {
@@ -44,13 +52,32 @@ class UserProfile extends Component {
 	render() {
 		return (
 			<Container>
-				{' '}
+				<Header as="h2" icon textAlign="center">
+					<Header.Content>
+						<UserAvatar
+							size="128"
+							name={this.state.currentUser.name}
+							src={this.state.currentUser.imageUrl}
+							style={{
+								display: 'flex',
+								justifyContent: 'center'
+							}}
+						/>
+					</Header.Content>
+					<Header.Content>
+						{this.state.currentUser.name}
+					</Header.Content>
+					<Header.Subheader>
+						{this.state.currentUser.description}
+					</Header.Subheader>
+				</Header>
+				<Divider />
 				{this.state.successfullyUpdated ? (
 					<Message info> Succesfully Updated </Message>
 				) : (
 					''
 				)}{' '}
-				<Form>
+				{/* <Form>
 					<Form.Field>
 						<label> Name </label>{' '}
 						<input
@@ -72,7 +99,7 @@ class UserProfile extends Component {
 					<Button onClick={this.handleProfileUpdate.bind(this)}>
 						Update{' '}
 					</Button>{' '}
-				</Form>{' '}
+				</Form>{' '} */}
 			</Container>
 		);
 	}

@@ -46,7 +46,7 @@ class Login extends Component {
 		// if login successful
 		if (this.state.loginSuccess === true) {
 			console.log('should redirect');
-			return <Redirect to="/slams" />;
+			return <Redirect to="/home" />;
 		}
 
 		// error messager handling

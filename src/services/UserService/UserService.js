@@ -1,21 +1,24 @@
 class UserService {
-	static users = [{
-			description: 'Pellentesque a mi vel tellus venenatis accumsan. Aliquam ultrices magna bibendum enim sagittis, eget commodo turpis suscipit. Maecenas ut ex mattis, accumsan nibh quis, congue turpis. Fusce eu tellus ac erat sagittis aliquet. Sed euismod justo et consequat tempus.',
+	static users = [
+		{
+			description:
+				'Pellentesque a mi vel tellus venenatis accumsan. Aliquam ultrices magna bibendum enim sagittis, eget commodo turpis suscipit. Maecenas ut ex mattis, accumsan nibh quis, congue turpis. Fusce eu tellus ac erat sagittis aliquet. Sed euismod justo et consequat tempus.',
 			id: 1,
 			name: 'Phil',
 			email: 'phillipchan1@gmail.com',
-			profilePicture: 'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
+			imageUrl:
+				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
 		},
 		{
-			description: 'Pellentesque a mi vel tellus venenatis accumsan. Aliquam ultrices magna bibendum enim sagittis, eget commodo turpis suscipit. Maecenas ut ex mattis, accumsan nibh quis, congue turpis. Fusce eu tellus ac erat sagittis aliquet. Sed euismod justo et consequat tempus.',
+			description:
+				'Pellentesque a mi vel tellus venenatis accumsan. Aliquam ultrices magna bibendum enim sagittis, eget commodo turpis suscipit. Maecenas ut ex mattis, accumsan nibh quis, congue turpis. Fusce eu tellus ac erat sagittis aliquet. Sed euismod justo et consequat tempus.',
 			id: 2,
 			name: 'Bob Marley',
 			email: 'phillipchan1@gmail.com',
-			profilePicture: 'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
-		},
-	]
-
-
+			imageUrl:
+				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
+		}
+	];
 
 	static updateUser(newProperties, cb) {
 		console.log('newProperties', newProperties);
