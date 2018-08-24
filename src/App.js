@@ -49,7 +49,7 @@ class App extends Component {
 					</Container>
 
 					<Container style={{ marginTop: '3em' }}>
-						<Route path="/" exact component={Slams} />
+						<Route path="/" exact component={Home} />
 						<Route path="/slams" component={Slams} />
 						<Route path="/home" component={Home} />
 						<Route
