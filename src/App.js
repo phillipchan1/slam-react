@@ -20,16 +20,16 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			isAuthenticated: true,
+			isAuthenticated: false,
 			currentUser: {}
 		};
 	}
 
-	handleSuccessfulLogin() {
+	handleSuccessfulLogin(user) {
 		this.setState({
-			isAuthenticated: true
+			isAuthenticated: true,
+			currentUser: user
 		});
-		console.log(this.state);
 	}
 
 	render() {
@@ -52,8 +52,8 @@ class App extends Component {
 						<Route path="/" exact component={Slams} />
 						<Route path="/slams" component={Slams} />
 						<Route path="/home" component={Home} />
-						<ProtectedRoute
-							path="/user-profile"
+						<Route
+							path="/user/:id"
 							component={UserProfile}
 							isAuthenticated={this.state.isAuthenticated}
 						/>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from '../../../services/AuthService/AuthService';
+import UserService from '../../../services/UserService/UserService';
 import { Button, Container, Form, Message } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
 
@@ -32,7 +33,7 @@ class Login extends Component {
 					loginSuccess: true
 				});
 
-				this.props.successfulLogin();
+				this.props.successfulLogin(UserService.getUser(1));
 			} else {
 				this.setState({
 					errorMessage: response.message

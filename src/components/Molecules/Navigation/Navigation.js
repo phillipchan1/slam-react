@@ -12,10 +12,12 @@ class Navigation extends Component {
 				<Menu.Menu position="right">
 					<NewPostButtonModal />
 
-					<Dropdown button text="Username">
+					<Dropdown button text = {
+						this.props.currentUser.name ? this.props.currentUser.name
+					 : 'Menu'} >
 						<Dropdown.Menu>
 							<Dropdown.Item text="User Profile">
-								<Link to={`/user-profile`}>User Profile</Link>
+								<Link to={`/user/${this.props.currentUser.id}`}>User Profile</Link>
 							</Dropdown.Item>
 							<Dropdown.Item
 								text="Log Out"

@@ -7,14 +7,20 @@ class UserProfile extends Component {
 		super(props);
 
 		this.state = {
-			currentUser: {},
+			currentUser: {
+				description: '',
+				id: undefined,
+				name: '',
+				email: '',
+				profilePicture: ''
+			},
 			successfullyUpdated: false
 		};
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.setState({
-			currentUser: UserService.getUser()
+			currentUser: UserService.getUser(this.props.match.params.id)
 		});
 	}
 
@@ -38,34 +44,35 @@ class UserProfile extends Component {
 	render() {
 		return (
 			<Container>
+				{' '}
 				{this.state.successfullyUpdated ? (
-					<Message info>Succesfully Updated</Message>
+					<Message info> Succesfully Updated </Message>
 				) : (
 					''
-				)}
+				)}{' '}
 				<Form>
 					<Form.Field>
-						<label> Name</label>
+						<label> Name </label>{' '}
 						<input
 							value={this.state.currentUser.name}
 							placeholder="First Name"
 							name="name"
 							onChange={this.handleChange.bind(this)}
-						/>
-					</Form.Field>
+						/>{' '}
+					</Form.Field>{' '}
 					<Form.Field>
-						<label>About</label>
+						<label> About </label>{' '}
 						<Form.TextArea
 							value={this.state.currentUser.description}
 							placeholder="Tell us more about you..."
 							name="description"
 							onChange={this.handleChange.bind(this)}
-						/>
-					</Form.Field>
+						/>{' '}
+					</Form.Field>{' '}
 					<Button onClick={this.handleProfileUpdate.bind(this)}>
-						Update
-					</Button>
-				</Form>
+						Update{' '}
+					</Button>{' '}
+				</Form>{' '}
 			</Container>
 		);
 	}
