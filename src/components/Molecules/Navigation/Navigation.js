@@ -39,7 +39,7 @@ class Navigation extends Component {
 				<Container>
 					<Menu secondary>
 						<Menu.Item>
-							<Link to={`/posts`}>Posts</Link>
+							<Link to={`/home`}>Home</Link>
 						</Menu.Item>
 						<Menu.Item>
 							<Link to={`/slams`}>Slams</Link>

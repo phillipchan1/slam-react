@@ -7,7 +7,7 @@ import Login from './components/Pages/Login/Login';
 import UserProfile from './components/Pages/UserProfile/UserProfile';
 import Slams from './components/Pages/Slams/Slams';
 import Slam from './components/Pages/Slam/Slam';
-import Posts from './components/Pages/Posts/Posts';
+import Home from './components/Pages/Home/Home';
 import ProtectedRoute from './components/Pages/ProtectedRoute/ProtectedRoute';
 
 // components
@@ -51,7 +51,7 @@ class App extends Component {
 					<Container style={{ marginTop: '3em' }}>
 						<Route path="/" exact component={Slams} />
 						<Route path="/slams" component={Slams} />
-						<Route path="/posts" component={Posts} />
+						<Route path="/home" component={Home} />
 						<ProtectedRoute
 							path="/user-profile"
 							component={UserProfile}

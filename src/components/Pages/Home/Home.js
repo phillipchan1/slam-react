@@ -3,9 +3,10 @@ import PostService from '../../../services/PostService/PostService';
 import SubmissionService from '../../../services/SubmissionService/SubmissionService';
 import ArrayUtils from '../../../utils/ArrayUtils';
 
-class Posts extends Component {
+class Home extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			combinedPosts: []
 		};
@@ -34,4 +35,4 @@ class Posts extends Component {
 	}
 }
 
-export default Posts;
+export default Home;
