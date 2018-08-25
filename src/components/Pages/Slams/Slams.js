@@ -4,14 +4,14 @@ import { Redirect, Link } from 'react-router-dom';
 import SlamService from '../../../services/SlamService/SlamService';
 import {
 	Menu,
+	Search,
 	Container,
 	Header,
 	Button,
 	Card,
 	Form,
 	Input,
-	Grid,
-	Segment
+	Grid
 } from 'semantic-ui-react';
 
 class Slams extends Component {

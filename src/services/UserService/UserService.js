@@ -17,6 +17,24 @@ class UserService {
 			email: 'phillipchan1@gmail.com',
 			imageUrl:
 				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
+		},
+		{
+			description:
+				'Pellentesque a mi vel tellus venenatis accumsan. Aliquam ultrices magna bibendum enim sagittis, eget commodo turpis suscipit. Maecenas ut ex mattis, accumsan nibh quis, congue turpis. Fusce eu tellus ac erat sagittis aliquet. Sed euismod justo et consequat tempus.',
+			id: 3,
+			name: 'Bob Joe',
+			email: 'phillipchan1@gmail.com',
+			imageUrl:
+				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
+		},
+		{
+			description:
+				'Pellentesque a mi vel tellus venenatis accumsan. Aliquam ultrices magna bibendum enim sagittis, eget commodo turpis suscipit. Maecenas ut ex mattis, accumsan nibh quis, congue turpis. Fusce eu tellus ac erat sagittis aliquet. Sed euismod justo et consequat tempus.',
+			id: 4,
+			name: 'Richard',
+			email: 'phillipchan1@gmail.com',
+			imageUrl:
+				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
 		}
 	];
 
