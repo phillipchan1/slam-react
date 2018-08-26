@@ -1,0 +1,10 @@
+.slot {
+  display: flex;
+  flex-direction: column; }
+  .slot header {
+    display: flex;
+    align-items: flex-start; }
+    .slot header .slot-image-container {
+      padding: 0 1em 1em 0; }
+    .slot header .slot-information-container {
+      text-align: left; }

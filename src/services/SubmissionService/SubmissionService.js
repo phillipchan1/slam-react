@@ -55,4 +55,10 @@ export default class SubmissionService {
 	static getSubmissions() {
 		return this.submissions;
 	}
+
+	static getSubmissionsBySlotId(slotId) {
+		return this.submissions.filter(submission => {
+			return submission.slotId == slotId;
+		});
+	}
 }

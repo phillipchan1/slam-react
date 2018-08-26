@@ -6,6 +6,22 @@
   padding: 1rem;
   text-align: left; }
 
+.slot {
+  display: flex;
+  flex-direction: column; }
+  .slot header {
+    display: flex;
+    align-items: flex-start; }
+    .slot header .slot-image-container {
+      padding: 0 1em 1em 0; }
+    .slot header .slot-information-container {
+      text-align: left; }
+
+.slot-container {
+  display: flex; }
+  .slot-container .item.slot {
+    padding: 2em; }
+
 .App {
   text-align: center; }
 

@@ -1,0 +1,4 @@
+.slot-container {
+  display: flex; }
+  .slot-container .item.slot {
+    padding: 2em; }

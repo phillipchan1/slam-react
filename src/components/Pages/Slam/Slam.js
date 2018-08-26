@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import SlamService from '../../../services/SlamService/SlamService';
-import { Header, Divider } from 'semantic-ui-react';
+import { Header, Item, Divider, Grid } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
+import SlotService from '../../../services/SlotService/SlotService';
+import Slot from '../../Molecules/Slot/Slot';
 
 class Slam extends Component {
 	constructor(props) {
@@ -9,12 +11,19 @@ class Slam extends Component {
 
 		this.state = {
 			name: '',
-			description: ''
+			description: '',
+			currentUser: {},
+			isAuthenticated: false,
+			slots: []
 		};
 	}
 
 	componentWillMount() {
 		this.setState(SlamService.getSlam(this.props.match.params.id));
+
+		this.setState({
+			slots: SlotService.getSlotsBySlamId(this.props.match.params.id)
+		});
 	}
 
 	render() {
@@ -32,6 +41,16 @@ class Slam extends Component {
 				<Header as="h1">{this.state.name}</Header>
 				<Header.Subheader>{this.state.description}</Header.Subheader>
 				<Divider />
+
+				<Grid columns="two" divided>
+					<Grid.Row>
+						<Item.Group className="slot-container">
+							{this.state.slots.map((slot, index) => {
+								return <Slot {...slot} />;
+							})}
+						</Item.Group>
+					</Grid.Row>
+				</Grid>
 			</div>
 		);
 	}
