@@ -6,8 +6,7 @@ class UserService {
 			id: 1,
 			name: 'Phil',
 			email: 'phillipchan1@gmail.com',
-			imageUrl:
-				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
+			imageUrl: 'https://api.adorable.io/avatars/241/abott@adorable.png'
 		},
 		{
 			description:
@@ -15,8 +14,7 @@ class UserService {
 			id: 2,
 			name: 'Bob Marley',
 			email: 'phillipchan1@gmail.com',
-			imageUrl:
-				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
+			imageUrl: 'https://api.adorable.io/avatars/241/abott@adorable.png'
 		},
 		{
 			description:
@@ -24,8 +22,7 @@ class UserService {
 			id: 3,
 			name: 'Bob Joe',
 			email: 'phillipchan1@gmail.com',
-			imageUrl:
-				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
+			imageUrl: 'https://api.adorable.io/avatars/241/abott@adorable.png'
 		},
 		{
 			description:
@@ -33,8 +30,7 @@ class UserService {
 			id: 4,
 			name: 'Richard',
 			email: 'phillipchan1@gmail.com',
-			imageUrl:
-				'https://www.iconspng.com/images/male-avatar/male-avatar.jpg'
+			imageUrl: 'https://api.adorable.io/avatars/241/abott@adorable.png'
 		}
 	];
 

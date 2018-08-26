@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Image, Icon } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 import SlamService from '../../../services/SlamService/SlamService';
 import SlotService from '../../../services/SlotService/SlotService';
 import UserTab from '../../Atoms/UserTab/UserTab';

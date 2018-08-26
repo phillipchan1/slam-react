@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Icon } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import UserTab from '../../Atoms/UserTab/UserTab';
+import Moment from 'react-moment';
 
 class Post extends Component {
 	constructor(props) {
@@ -11,16 +12,17 @@ class Post extends Component {
 		};
 	}
 
-	componentDidMount() {
-		// this.setState({
-		// 	user: UserService.getUser(this.props.userId)
-		// });
-	}
-
 	render() {
 		return (
 			<Card>
 				<Card.Content description={this.props.post} />
+				<Card.Meta>
+					<span className="date">
+						<Moment format="MMMM Do YYYY">
+							{this.props.dateCreated.toString()}
+						</Moment>
+					</span>
+				</Card.Meta>
 				<UserTab userId={this.props.userId} />
 			</Card>
 		);

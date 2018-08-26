@@ -3,25 +3,25 @@ class PostService {
 		{
 			post: 'this is a sample post',
 			userId: 1,
-			postDate: new Date(),
+			dateCreated: new Date(),
 			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
 			userId: 2,
-			postDate: new Date(),
+			dateCreated: new Date(),
 			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
 			userId: 1,
-			postDate: new Date(),
+			dateCreated: new Date(),
 			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
 			userId: 4,
-			postDate: new Date(),
+			dateCreated: new Date(),
 			type: 'post'
 		}
 	];
