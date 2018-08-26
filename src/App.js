@@ -13,7 +13,6 @@ import ProtectedRoute from './components/Pages/ProtectedRoute/ProtectedRoute';
 // components
 import Navigation from './components/Molecules/Navigation/Navigation';
 import { Container } from 'semantic-ui-react';
-import AddEditSlam from './components/Pages/AddEditSlam/AddEditSlam';
 
 class App extends Component {
 	constructor(props) {
@@ -55,11 +54,6 @@ class App extends Component {
 						<Route
 							path="/user/:id"
 							component={UserProfile}
-							isAuthenticated={this.state.isAuthenticated}
-						/>
-						<ProtectedRoute
-							path="/add-edit-slam"
-							component={AddEditSlam}
 							isAuthenticated={this.state.isAuthenticated}
 						/>
 						<Route path="/slam/:id" component={Slam} />
