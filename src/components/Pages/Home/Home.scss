@@ -1,0 +1,6 @@
+.posts-container {
+	& > div {
+		box-sizing: border-box;
+		margin-bottom: 16px;
+	}
+}

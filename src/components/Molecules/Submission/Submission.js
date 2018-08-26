@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Image, Icon } from 'semantic-ui-react';
 import SlamService from '../../../services/SlamService/SlamService';
 import SlotService from '../../../services/SlotService/SlotService';
-import UserService from '../../../services/UserService/UserService';
+import UserTab from '../../Atoms/UserTab/UserTab';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
@@ -20,14 +20,7 @@ class Submission extends Component {
 	}
 
 	componentDidMount() {
-		var user = UserService.getUser(this.props.userId);
 		var slot = SlotService.getSlot(this.props.slotId);
-
-		if (user) {
-			this.setState({
-				username: user.name
-			});
-		}
 
 		if (slot) {
 			this.setState({
@@ -56,12 +49,7 @@ class Submission extends Component {
 								</span>
 							</Card.Meta>
 						</Card.Content>
-						<Card.Content extra>
-							<Link to={`/user/${this.props.userId}`}>
-								<Icon name="user" />
-								{this.state.username}
-							</Link>
-						</Card.Content>
+						<UserTab userId={this.props.userId} />
 					</Card>
 				</Link>
 			</div>

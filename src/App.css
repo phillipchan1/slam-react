@@ -1,11 +1,6 @@
-.avatar {
-  border-radius: 50%;
-  background: #efefef;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .avatar:hover {
-    cursor: pointer; }
+.posts-container > div {
+  box-sizing: border-box;
+  margin-bottom: 16px; }
 
 .ui.cards .card.slam {
   padding: 1rem;

@@ -49,13 +49,6 @@ class Slams extends Component {
 			<div className="slams">
 				<Container>
 					<Menu secondary>
-						<Menu.Menu>
-							<Menu.Item>
-								<Button>
-									<Link to={`/add-edit-slam`}>New Slam</Link>
-								</Button>
-							</Menu.Item>
-						</Menu.Menu>
 						<Menu.Menu position="right">
 							{this.state.searchActive
 								? `Searching for ${this.state.searchTerm}`
@@ -84,6 +77,7 @@ class Slams extends Component {
 												width: '100%',
 												marginBottom: '1em'
 											}}
+											key={slam.id}
 										>
 											<Slam {...slam} />
 										</Link>

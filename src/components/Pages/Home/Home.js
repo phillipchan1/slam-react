@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PostService from '../../../services/PostService/PostService';
 import SubmissionService from '../../../services/SubmissionService/SubmissionService';
 import Submission from '../../Molecules/Submission/Submission';
+import Post from '../../Molecules/Post/Post';
 import ArrayUtils from '../../../utils/ArrayUtils';
 import { Card } from 'semantic-ui-react';
+import Masonry from 'react-masonry-component';
 
 class Home extends Component {
 	constructor(props) {
@@ -25,15 +27,21 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="posts-container">
-				<Card.Group itemsPerRow={4}>
+				<Masonry
+					className={'posts-container'}
+					elementType={'div'}
+					options={{ gutter: 16 }}
+					disableImagesLoaded={false}
+					updateOnEachImageLoad={false}
+				>
 					{this.state.combinedPosts.map(post => {
 						if (post.type === 'post') {
-							return 'post';
+							return <Post {...post} />;
 						} else if (post.type === 'submission') {
 							return <Submission {...post} key={post.id} />;
 						}
 					})}
-				</Card.Group>
+				</Masonry>
 			</div>
 		);
 	}

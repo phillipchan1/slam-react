@@ -2,25 +2,25 @@ class PostService {
 	static samplePosts = [
 		{
 			post: 'this is a sample post',
-			author: 'username',
+			userId: 1,
 			postDate: new Date(),
 			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
-			author: 'username',
+			userId: 2,
 			postDate: new Date(),
 			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
-			author: 'username',
+			userId: 1,
 			postDate: new Date(),
 			type: 'post'
 		},
 		{
 			post: 'this is a sample post',
-			author: 'username',
+			userId: 4,
 			postDate: new Date(),
 			type: 'post'
 		}
