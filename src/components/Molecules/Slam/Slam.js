@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
+
 class Slam extends Component {
 	render() {
 		return (
@@ -11,7 +12,7 @@ class Slam extends Component {
 				description={this.props.description}
 				header={this.props.name}
 				onClick={this.props.onClick}
-				meta={`${this.props.slotsFilled}/${this.props.slots} Slots`}
+				meta={`${this.props.slots} Slots`}
 			/>
 		);
 	}
