@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Modal } from 'semantic-ui-react';
 import SlamService from '../../../services/SlamService/SlamService';
 import SlotService from '../../../services/SlotService/SlotService';
 import UserTab from '../../Atoms/UserTab/UserTab';
@@ -32,11 +32,7 @@ class Submission extends Component {
 	render() {
 		return (
 			<div>
-				<Link
-					to={`/slam/${this.state.slam.id}/submission/${
-						this.props.id
-					}`}
-				>
+				<Link to={`/slam/${this.state.slam.id}/${this.props.id}`}>
 					<Card>
 						<Image src={this.props.imageUrl} />
 						<Card.Content>

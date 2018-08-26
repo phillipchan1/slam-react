@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SlamService from '../../../services/SlamService/SlamService';
-import { Header, Item, Divider, Grid } from 'semantic-ui-react';
+import { Header, Item, Divider, Grid, Modal } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import SlotService from '../../../services/SlotService/SlotService';
 import Slot from '../../Molecules/Slot/Slot';
@@ -14,9 +14,14 @@ class Slam extends Component {
 			description: '',
 			currentUser: {},
 			isAuthenticated: false,
-			slots: []
+			slots: [],
+			modalOpen: false
 		};
 	}
+
+	handleOpen = () => this.setState({ modalOpen: true });
+
+	handleClose = () => this.setState({ modalOpen: false });
 
 	componentWillMount() {
 		this.setState(SlamService.getSlam(this.props.match.params.id));
@@ -33,10 +38,7 @@ class Slam extends Component {
 					size="128"
 					src={this.state.imageUrl}
 					name={this.state.name}
-					style={{
-						display: 'flex',
-						justifyContent: 'center'
-					}}
+					style={{ display: 'flex', justifyContent: 'center' }}
 				/>
 				<Header as="h1">{this.state.name}</Header>
 				<Header.Subheader>{this.state.description}</Header.Subheader>
@@ -51,6 +53,18 @@ class Slam extends Component {
 						</Item.Group>
 					</Grid.Row>
 				</Grid>
+				<Modal
+					open={this.state.modalOpen}
+					onClose={this.handleClose}
+					basic
+				>
+					<Modal.Content>
+						<h3>
+							This website uses cookies to ensure the best user
+							experience.
+						</h3>
+					</Modal.Content>
+				</Modal>
 			</div>
 		);
 	}

@@ -56,7 +56,14 @@ class App extends Component {
 							component={UserProfile}
 							isAuthenticated={this.state.isAuthenticated}
 						/>
-						<Route path="/slam/:id" component={Slam} />
+						<Route
+							path="/slam/:id/:submissionId?"
+							component={Slam}
+						/>
+						{/* <Route
+							path="/slam/:id/submission/:submissionId"
+							component={Slam}
+						/> */}
 						<Route
 							path="/login"
 							render={props => (
