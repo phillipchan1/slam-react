@@ -3,6 +3,7 @@ import { Item, Grid, Divider } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import Submission from '../../Molecules/Submission/Submission';
 import SubmissionService from '../../../services/SubmissionService/SubmissionService';
+import UserService from '../../../services/UserService/UserService';
 
 class Slot extends Component {
 	constructor(props) {
@@ -15,7 +16,12 @@ class Slot extends Component {
 
 	componentWillMount() {
 		this.setState({
-			submissions: SubmissionService.getSubmissionsBySlotId(this.props.id)
+			submissions: SubmissionService.getSubmissionsBySlotId(
+				this.props.id
+			),
+			usersAndProgress: UserService.getUsersAndProgressBySlotId(
+				this.props.id
+			)
 		});
 	}
 
@@ -37,13 +43,11 @@ class Slot extends Component {
 				</header>
 				<Divider />
 				<Grid columns={3} divided>
-					{this.state.submissions.map(submission => {
-						return (
-							<Grid.Column>
-								<Submission {...submission} />
-							</Grid.Column>
-						);
-					})}
+					{this.state.usersAndProgress.usersAndProgress.map(
+						usersAndProgress => {
+							return usersAndProgress.user.name;
+						}
+					)}
 				</Grid>
 			</Item>
 		);

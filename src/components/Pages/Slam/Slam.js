@@ -19,10 +19,6 @@ class Slam extends Component {
 		};
 	}
 
-	handleOpen = () => this.setState({ modalOpen: true });
-
-	handleClose = () => this.setState({ modalOpen: false });
-
 	componentWillMount() {
 		this.setState(SlamService.getSlam(this.props.match.params.id));
 
@@ -53,18 +49,6 @@ class Slam extends Component {
 						</Item.Group>
 					</Grid.Row>
 				</Grid>
-				<Modal
-					open={this.state.modalOpen}
-					onClose={this.handleClose}
-					basic
-				>
-					<Modal.Content>
-						<h3>
-							This website uses cookies to ensure the best user
-							experience.
-						</h3>
-					</Modal.Content>
-				</Modal>
 			</div>
 		);
 	}

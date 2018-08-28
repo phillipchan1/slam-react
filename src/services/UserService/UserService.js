@@ -1,3 +1,6 @@
+import SlotService from '../SlotService/SlotService';
+import SubmissionService from '../SubmissionService/SubmissionService';
+
 class UserService {
 	static users = [
 		{
@@ -45,6 +48,32 @@ class UserService {
 		return this.users.find(user => {
 			return user.id == id;
 		});
+	}
+
+	static getUsersAndProgressBySlotId(slotId) {
+		var slot = SlotService.getSlot(slotId);
+		var slots = SlotService.getSlotsBySlamId(slot.slamId);
+		var slotsInSlam = slots.length;
+
+		var submissions = SubmissionService.getSubmissions().filter(
+			submission => {
+				return submission.slotId === slotId;
+			}
+		);
+
+		var usersAndProgress = submissions.map(submission => {
+			return {
+				user: this.getUser(submission.userId),
+				slotsSubmitted: 1
+			};
+		});
+
+		console.log(usersAndProgress);
+
+		return {
+			slotsInSlam: slotsInSlam,
+			usersAndProgress: usersAndProgress
+		};
 	}
 }
 
