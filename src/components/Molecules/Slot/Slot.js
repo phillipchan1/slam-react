@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Item, Divider, Header } from 'semantic-ui-react';
+import { Item, Modal, Header, Button } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import SubmissionService from '../../../services/SubmissionService/SubmissionService';
 import UserService from '../../../services/UserService/UserService';
 import UserAndProgress from '../../Molecules/UserAndProgress/UserAndProgress';
 import { Link } from 'react-router-dom';
+import AddEditSubmission from '../../Organisms/AddEditSubmission/AddEditSubmission';
 
 class Slot extends Component {
 	constructor(props) {
@@ -41,14 +42,18 @@ class Slot extends Component {
 						<Item.Header as="h3">{this.props.name}</Item.Header>
 						<Item.Meta>{this.props.description}</Item.Meta>
 
-						<Link to="/home">Submit a Submission!</Link>
+						<Modal trigger={<a href="#">Submit a Submission!</a>}>
+							<Modal.Content image>
+								<AddEditSubmission />
+							</Modal.Content>
+						</Modal>
 					</div>
 				</header>
 				<div className="users-container">
 					<Header as="h4" style={{ textAlign: 'left' }}>
 						Users Participating
 					</Header>
-					<div class="user-and-progress-container">
+					<div className="user-and-progress-container">
 						{this.state.usersAndProgress.usersAndProgress.map(
 							usersAndProgress => {
 								return (
@@ -58,6 +63,7 @@ class Slot extends Component {
 											this.state.usersAndProgress
 												.slotsInSlam
 										}
+										key={usersAndProgress.user.id}
 									/>
 								);
 							}

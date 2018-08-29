@@ -44,7 +44,11 @@ class Slam extends Component {
 					{this.state.slots.map((slot, index) => {
 						return (
 							<div>
-								<Slot {...slot} />
+								<Slot
+									{...slot}
+									slamId={this.props.match.params.id}
+									key={slot.id}
+								/>
 								<Divider />
 							</div>
 						);
