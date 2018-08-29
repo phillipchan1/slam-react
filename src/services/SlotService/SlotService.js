@@ -39,6 +39,14 @@ export default class SlotService {
 				'Praesent in enim tincidunt, convallis ex et, viverra orci. Morbi semper diam a lacinia imperdiet. Vivamus congue ex ut diam luctus, et facilisis metus luctus.',
 			imageUrl: 'https://source.unsplash.com/random/',
 			id: 5
+		},
+		{
+			slamId: 1,
+			name: 'Another slot',
+			description:
+				'Praesent in enim tincidunt, convallis ex et, viverra orci. Morbi semper diam a lacinia imperdiet. Vivamus congue ex ut diam luctus, et facilisis metus luctus.',
+			imageUrl: 'https://source.unsplash.com/random/',
+			id: 6
 		}
 	];
 

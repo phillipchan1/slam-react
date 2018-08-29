@@ -1,16 +1,18 @@
 .user-progress-card {
   display: flex;
-  padding: 0.5em;
-  font-size: 0.8em;
+  flex-direction: column;
+  padding: 0.7em;
+  font-size: 0.7em;
   border-radius: 4px;
-  margin: 0 0.5em 0.5em 0; }
+  margin: 0 0.5em 0.5em 0;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.15s ease-in-out; }
+  .user-progress-card:hover {
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2); }
   .user-progress-card header {
-    align-items: flex-end;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-right: 0.5em;
-    max-width: 70px; }
+    font-weight: bold;
+    white-space: nowrap; }
   .user-progress-card .ui.progress {
     margin-bottom: 0; }
     .user-progress-card .ui.progress .bar {

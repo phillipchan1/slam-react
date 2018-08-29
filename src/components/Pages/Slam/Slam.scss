@@ -1,7 +1,9 @@
 .slot-container {
 	display: flex;
+	flex-wrap: wrap;
 
 	.item.slot {
 		padding: 2em;
+		width: 100%;
 	}
 }

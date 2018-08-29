@@ -18,7 +18,8 @@ class Slams extends Component {
 		this.state = {
 			slams: [],
 			searchActive: false,
-			searchTerm: ''
+			searchTerm: '',
+			slamsUserIsIn: []
 		};
 	}
 
@@ -26,6 +27,16 @@ class Slams extends Component {
 		this.setState({
 			slams: SlamService.getSlams()
 		});
+
+		console.log(this.props);
+
+		if (this.props.currentUser) {
+			this.setState({
+				slamsUserIsIn: SlamService.getSlamsByUserId(
+					this.props.currentUser.id
+				)
+			});
+		}
 	}
 
 	handleSearchOnChange(e) {
@@ -70,6 +81,7 @@ class Slams extends Component {
 						<Grid.Column width={6}>
 							<Container>
 								<Header as="h2">Slams You're In</Header>
+								<SlamsList slams={this.state.slamsUserIsIn} />
 							</Container>
 						</Grid.Column>
 					</Grid>

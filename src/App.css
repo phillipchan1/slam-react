@@ -7,33 +7,36 @@
   text-align: left; }
 
 .slot {
-  display: flex;
-  flex-direction: column; }
+  display: flex; }
   .slot header {
     display: flex;
-    align-items: flex-start; }
+    align-items: flex-start;
+    width: 50%; }
     .slot header .slot-image-container {
       padding: 0 1em 1em 0; }
     .slot header .slot-information-container {
       text-align: left; }
+  .slot .users-container {
+    width: 50%; }
   .slot .user-and-progress-container {
-    display: flex; }
-    .slot .user-and-progress-container .user-progress-card {
-      width: 33.33%; }
+    display: flex;
+    flex-wrap: wrap; }
 
 .user-progress-card {
   display: flex;
-  padding: 0.5em;
-  font-size: 0.8em;
+  flex-direction: column;
+  padding: 0.7em;
+  font-size: 0.7em;
   border-radius: 4px;
-  margin: 0 0.5em 0.5em 0; }
+  margin: 0 0.5em 0.5em 0;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.15s ease-in-out; }
+  .user-progress-card:hover {
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2); }
   .user-progress-card header {
-    align-items: flex-end;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-right: 0.5em;
-    max-width: 70px; }
+    font-weight: bold;
+    white-space: nowrap; }
   .user-progress-card .ui.progress {
     margin-bottom: 0; }
     .user-progress-card .ui.progress .bar {
@@ -43,9 +46,11 @@
     flex: 1 1 auto; }
 
 .slot-container {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .slot-container .item.slot {
-    padding: 2em; }
+    padding: 2em;
+    width: 100%; }
 
 .App {
   text-align: center; }

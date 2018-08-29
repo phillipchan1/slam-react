@@ -49,6 +49,26 @@ export default class SubmissionService {
 			slotId: 1,
 			userId: 2,
 			dateCreated: new Date()
+		},
+		{
+			imageUrl: 'https://source.unsplash.com/random/250x250',
+			featuredImage: 1,
+			description:
+				'Phasellus quis est mollis, ullamcorper leo quis, tempor turpis. Cras sed nisi quis dui fringilla maximus quis ac nulla.',
+			id: 6,
+			slotId: 1,
+			userId: 4,
+			dateCreated: new Date()
+		},
+		{
+			imageUrl: 'https://source.unsplash.com/random/250x250',
+			featuredImage: 1,
+			description:
+				'Phasellus quis est mollis, ullamcorper leo quis, tempor turpis. Cras sed nisi quis dui fringilla maximus quis ac nulla.',
+			id: 7,
+			slotId: 1,
+			userId: 5,
+			dateCreated: new Date()
 		}
 	];
 

@@ -49,7 +49,12 @@ class App extends Component {
 
 					<Container style={{ marginTop: '3em' }}>
 						<Route path="/" exact component={Home} />
-						<Route path="/slams" component={Slams} />
+						<Route
+							path="/slams"
+							component={Slams}
+							isAuthenticated={this.state.isAuthenticated}
+							currentUser={this.state.currentUser}
+						/>
 						<Route path="/home" component={Home} />
 						<Route
 							path="/user/:id"

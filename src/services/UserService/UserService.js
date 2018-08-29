@@ -35,6 +35,14 @@ class UserService {
 			name: 'Richard',
 			email: 'phillipchan1@gmail.com',
 			imageUrl: 'https://api.adorable.io/avatars/241/abott@adorable.png'
+		},
+		{
+			description:
+				'Pellentesque a mi vel tellus venenatis accumsan. Aliquam ultrices magna bibendum enim sagittis, eget commodo turpis suscipit. Maecenas ut ex mattis, accumsan nibh quis, congue turpis. Fusce eu tellus ac erat sagittis aliquet. Sed euismod justo et consequat tempus.',
+			id: 5,
+			name: 'Chris Hemsworth',
+			email: 'chris@gmail.com',
+			imageUrl: 'https://api.adorable.io/avatars/241/abott@adorable.png'
 		}
 	];
 

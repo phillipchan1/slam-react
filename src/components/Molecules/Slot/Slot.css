@@ -1,14 +1,15 @@
 .slot {
-  display: flex;
-  flex-direction: column; }
+  display: flex; }
   .slot header {
     display: flex;
-    align-items: flex-start; }
+    align-items: flex-start;
+    width: 50%; }
     .slot header .slot-image-container {
       padding: 0 1em 1em 0; }
     .slot header .slot-information-container {
       text-align: left; }
+  .slot .users-container {
+    width: 50%; }
   .slot .user-and-progress-container {
-    display: flex; }
-    .slot .user-and-progress-container .user-progress-card {
-      width: 33.33%; }
+    display: flex;
+    flex-wrap: wrap; }

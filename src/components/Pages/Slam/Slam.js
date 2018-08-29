@@ -40,14 +40,19 @@ class Slam extends Component {
 				<Header.Subheader>{this.state.description}</Header.Subheader>
 				<Divider />
 
+				<div className="slot-container">
+					{this.state.slots.map((slot, index) => {
+						return (
+							<div>
+								<Slot {...slot} />
+								<Divider />
+							</div>
+						);
+					})}
+				</div>
+
 				<Grid columns="two" divided>
-					<Grid.Row>
-						<Item.Group className="slot-container">
-							{this.state.slots.map((slot, index) => {
-								return <Slot {...slot} />;
-							})}
-						</Item.Group>
-					</Grid.Row>
+					<Grid.Row />
 				</Grid>
 			</div>
 		);
