@@ -14,4 +14,12 @@
 			text-align: left;
 		}
 	}
+
+	.user-and-progress-container {
+		display: flex;
+
+		.user-progress-card {
+			width: 50%;
+		}
+	}
 }

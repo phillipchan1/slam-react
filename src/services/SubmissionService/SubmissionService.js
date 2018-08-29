@@ -67,4 +67,10 @@ export default class SubmissionService {
 			return submission.slotId == slotId;
 		});
 	}
+
+	static getSubmissionsByUserId(userId) {
+		return this.submissions.filter(submission => {
+			return submission.userId == userId;
+		});
+	}
 }

@@ -42,7 +42,7 @@ class Slot extends Component {
 					</div>
 				</header>
 				<Divider />
-				<List horizontal>
+				<div class="user-and-progress-container">
 					{this.state.usersAndProgress.usersAndProgress.map(
 						usersAndProgress => {
 							return (
@@ -55,7 +55,7 @@ class Slot extends Component {
 							);
 						}
 					)}
-				</List>
+				</div>
 			</Item>
 		);
 	}

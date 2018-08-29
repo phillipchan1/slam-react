@@ -1,3 +1,5 @@
+import SubmissionService from '../SubmissionService/SubmissionService';
+
 class SlamService {
 	static slams = [
 		{
@@ -55,7 +57,9 @@ class SlamService {
 		});
 	}
 
-	static getSlamsByUserId(userId) {}
+	static getSlamsByUserId(userId) {
+		var slots = SubmissionService.getSubmissionsByUserId(userId);
+	}
 }
 
 export default SlamService;

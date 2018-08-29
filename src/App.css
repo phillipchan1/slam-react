@@ -16,6 +16,30 @@
       padding: 0 1em 1em 0; }
     .slot header .slot-information-container {
       text-align: left; }
+  .slot .user-and-progress-container {
+    display: flex; }
+    .slot .user-and-progress-container .user-progress-card {
+      width: 50%; }
+
+.user-progress-card {
+  display: flex;
+  padding: 0.5em;
+  font-size: 0.8em;
+  border-radius: 4px;
+  margin: 0 0.5em 0.5em 0; }
+  .user-progress-card header {
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; }
+  .user-progress-card .ui.progress {
+    margin-bottom: 0; }
+    .user-progress-card .ui.progress .bar {
+      height: 1.25em;
+      font-size: 0.9em; }
+  .user-progress-card .user-and-progress-content {
+    flex: 1 1 auto; }
 
 .slot-container {
   display: flex; }
