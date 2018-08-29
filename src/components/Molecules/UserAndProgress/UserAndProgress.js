@@ -8,7 +8,7 @@ class UserAndProgress extends Component {
 			<div className="user-progress-card">
 				<Link to={`/user/${this.props.user.id}`}>
 					<header>
-						<Image avatar src={this.props.user.imageUrl} />
+						{/* <Image avatar src={this.props.user.imageUrl} /> */}
 						<List.Header as="a">{this.props.user.name}</List.Header>
 					</header>
 				</Link>

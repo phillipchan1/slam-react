@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import UserService from '../../../services/UserService/UserService';
-import {
-	Container,
-	Form,
-	Button,
-	Message,
-	Header,
-	Divider
-} from 'semantic-ui-react';
+import { Container, Form, Message, Header, Divider } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
+import SlamsList from '../../Organisms/SlamsList/SlamsList';
+import SlamService from '../../../services/SlamService/SlamService';
 
 class UserProfile extends Component {
 	constructor(props) {
@@ -22,14 +17,28 @@ class UserProfile extends Component {
 				email: '',
 				profilePicture: ''
 			},
-			successfullyUpdated: false
+			successfullyUpdated: false,
+			slamsUserIsIn: []
 		};
 	}
 
 	componentWillMount() {
-		this.setState({
-			currentUser: UserService.getUser(this.props.match.params.id)
-		});
+		this.setState(
+			{
+				currentUser: UserService.getUser(this.props.match.params.id)
+			},
+			() => {
+				this.setState({
+					slamsUserIsIn: SlamService.getSlamsByUserId(
+						this.state.currentUser.id
+					)
+				});
+			}
+		);
+	}
+
+	componentDidMount() {
+		this.setState({});
 	}
 
 	handleChange(e) {
@@ -71,12 +80,24 @@ class UserProfile extends Component {
 						{this.state.currentUser.description}
 					</Header.Subheader>
 				</Header>
-				<Divider />
-				{this.state.successfullyUpdated ? (
+				<Divider section />
+
+				<Header as="h3" style={{ textAlign: 'left' }}>
+					Slams User is In
+				</Header>
+
+				<Divider section hidden />
+
+				<SlamsList
+					style={{ marginTop: '1em' }}
+					slams={this.state.slamsUserIsIn}
+				/>
+
+				{/* {this.state.successfullyUpdated ? (
 					<Message info> Succesfully Updated </Message>
 				) : (
 					''
-				)}{' '}
+				)}{' '} */}
 				{/* <Form>
 					<Form.Field>
 						<label> Name </label>{' '}

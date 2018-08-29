@@ -19,7 +19,7 @@
   .slot .user-and-progress-container {
     display: flex; }
     .slot .user-and-progress-container .user-progress-card {
-      width: 50%; }
+      width: 33.33%; }
 
 .user-progress-card {
   display: flex;
@@ -28,11 +28,12 @@
   border-radius: 4px;
   margin: 0 0.5em 0.5em 0; }
   .user-progress-card header {
-    width: 70px;
+    align-items: flex-end;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center; }
+    justify-content: center;
+    margin-right: 0.5em;
+    max-width: 70px; }
   .user-progress-card .ui.progress {
     margin-bottom: 0; }
     .user-progress-card .ui.progress .bar {

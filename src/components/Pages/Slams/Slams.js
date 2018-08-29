@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import Slam from '../../Molecules/Slam/Slam';
-import { Redirect, Link } from 'react-router-dom';
 import SlamService from '../../../services/SlamService/SlamService';
+import SlamsList from '../../Organisms/SlamsList/SlamsList';
 import {
 	Menu,
 	Search,
 	Container,
 	Header,
-	Button,
-	Card,
 	Form,
 	Input,
 	Grid
@@ -68,22 +65,7 @@ class Slams extends Component {
 				<Container style={{ marginTop: '3em' }}>
 					<Grid columns={2} stackable>
 						<Grid.Column width={10}>
-							<Card.Group>
-								{this.state.slams.map(slam => {
-									return (
-										<Link
-											to={`/slam/${slam.id}`}
-											style={{
-												width: '100%',
-												marginBottom: '1em'
-											}}
-											key={slam.id}
-										>
-											<Slam {...slam} />
-										</Link>
-									);
-								})}
-							</Card.Group>
+							<SlamsList slams={this.state.slams} />
 						</Grid.Column>
 						<Grid.Column width={6}>
 							<Container>

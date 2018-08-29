@@ -1,4 +1,5 @@
 import SubmissionService from '../SubmissionService/SubmissionService';
+import SlotService from '../SlotService/SlotService';
 
 class SlamService {
 	static slams = [
@@ -57,8 +58,28 @@ class SlamService {
 		});
 	}
 
+	static getSlamBySlotId(slotId) {
+		var slot = SlotService.getSlot(slotId);
+
+		return this.slams.find(slam => {
+			return slam.id == slot.slamId;
+		});
+	}
+
 	static getSlamsByUserId(userId) {
-		var slots = SubmissionService.getSubmissionsByUserId(userId);
+		var submissions = SubmissionService.getSubmissionsByUserId(userId);
+		var slotIds = new Set();
+		var slams = new Set();
+
+		submissions.forEach(submission => {
+			slotIds.add(submission.slotId);
+		});
+
+		slotIds.forEach(slotId => {
+			slams.add(this.getSlamBySlotId(slotId));
+		});
+
+		return Array.from(slams);
 	}
 }
 

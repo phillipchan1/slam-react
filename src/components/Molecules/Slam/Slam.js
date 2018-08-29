@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 class Slam extends Component {
 	render() {
@@ -9,11 +9,22 @@ class Slam extends Component {
 				className="slam"
 				centered={false}
 				className="slam"
-				description={this.props.description}
-				header={this.props.name}
 				onClick={this.props.onClick}
-				meta={`${this.props.slots} Slots`}
-			/>
+			>
+				<Card.Content>
+					<Card.Header style={{ marginBottom: '1em' }}>
+						<Image
+							src={this.props.imageUrl}
+							avatar
+							style={{ marginRight: '1em' }}
+						/>
+						{this.props.name}
+					</Card.Header>
+					<Card.Meta>
+						<span className="date">{this.props.description}</span>
+					</Card.Meta>
+				</Card.Content>
+			</Card>
 		);
 	}
 }
