@@ -1,5 +1,6 @@
 import SlotService from '../SlotService/SlotService';
 import SubmissionService from '../SubmissionService/SubmissionService';
+import ArrayUtils from '../../utils/ArrayUtils';
 
 class UserService {
 	static users = [
@@ -50,6 +51,28 @@ class UserService {
 		});
 	}
 
+	static getUsersInSlam(slamId) {
+		var slots = SlotService.getSlotsBySlamId(slamId);
+		var allSubmissions = [];
+
+		slots.forEach((slot, index) => {
+			let submissions = SubmissionService.getSubmissionsBySlotId(slot.id);
+
+			allSubmissions.push(submissions);
+		});
+
+		allSubmissions = allSubmissions.reduce(
+			(acc, val) => acc.concat(val),
+			[]
+		);
+
+		var users = allSubmissions.map(submission => {
+			return submission.userId;
+		});
+
+		return users;
+	}
+
 	static getUsersAndProgressBySlotId(slotId) {
 		var slot = SlotService.getSlot(slotId);
 		var slots = SlotService.getSlotsBySlamId(slot.slamId);
@@ -61,14 +84,17 @@ class UserService {
 			}
 		);
 
+		var allUsersInSlam = this.getUsersInSlam(slot.slamId);
+
 		var usersAndProgress = submissions.map(submission => {
 			return {
 				user: this.getUser(submission.userId),
-				slotsSubmitted: 1
+				slotsSubmitted: ArrayUtils.countInArray(
+					allUsersInSlam,
+					submission.userId
+				)
 			};
 		});
-
-		console.log(usersAndProgress);
 
 		return {
 			slotsInSlam: slotsInSlam,

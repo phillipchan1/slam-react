@@ -60,10 +60,6 @@ class App extends Component {
 							path="/slam/:id/:submissionId?"
 							component={Slam}
 						/>
-						{/* <Route
-							path="/slam/:id/submission/:submissionId"
-							component={Slam}
-						/> */}
 						<Route
 							path="/login"
 							render={props => (

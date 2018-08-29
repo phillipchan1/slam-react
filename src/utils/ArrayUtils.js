@@ -7,4 +7,14 @@ export default class ArrayUtils {
 
 		return a;
 	}
+
+	static countInArray(array, what) {
+		var count = 0;
+		for (var i = 0; i < array.length; i++) {
+			if (array[i] === what) {
+				count++;
+			}
+		}
+		return count;
+	}
 }

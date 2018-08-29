@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Item, Grid, Divider } from 'semantic-ui-react';
+import { Item, Grid, Divider, List } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
-import Submission from '../../Molecules/Submission/Submission';
 import SubmissionService from '../../../services/SubmissionService/SubmissionService';
 import UserService from '../../../services/UserService/UserService';
+import UserAndProgress from '../../Molecules/UserAndProgress/UserAndProgress';
 
 class Slot extends Component {
 	constructor(props) {
@@ -42,13 +42,20 @@ class Slot extends Component {
 					</div>
 				</header>
 				<Divider />
-				<Grid columns={3} divided>
+				<List horizontal>
 					{this.state.usersAndProgress.usersAndProgress.map(
 						usersAndProgress => {
-							return usersAndProgress.user.name;
+							return (
+								<UserAndProgress
+									{...usersAndProgress}
+									totalSlots={
+										this.state.usersAndProgress.slotsInSlam
+									}
+								/>
+							);
 						}
 					)}
-				</Grid>
+				</List>
 			</Item>
 		);
 	}

@@ -54,6 +54,8 @@ class SlamService {
 			return slam.id == id;
 		});
 	}
+
+	static getSlamsByUserId(userId) {}
 }
 
 export default SlamService;
