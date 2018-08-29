@@ -21,6 +21,8 @@ class Home extends Component {
 		var submissions = SubmissionService.getSubmissions();
 		var combinedPosts = ArrayUtils.shuffle([...posts, ...submissions]);
 
+		console.log('combinedPosts', combinedPosts);
+
 		this.setState({ combinedPosts: combinedPosts });
 	}
 
@@ -35,9 +37,9 @@ class Home extends Component {
 					updateOnEachImageLoad={false}
 				>
 					{this.state.combinedPosts.map(post => {
-						if (post.type === 'post') {
+						if (post.post) {
 							return <Post {...post} />;
-						} else if (post.type === 'submission') {
+						} else if (post.slotId) {
 							return <Submission {...post} key={post.id} />;
 						}
 					})}
