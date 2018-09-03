@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthService from '../../../services/AuthService/AuthService';
 import UserService from '../../../services/UserService/UserService';
 import { Button, Container, Form, Message } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
@@ -59,7 +60,6 @@ class Login extends Component {
 		return (
 			<Container>
 				{errMessage}
-
 				<Form onSubmit={this.handleSubmit.bind(this)}>
 					<Form.Field>
 						<label>Email</label>
@@ -80,6 +80,10 @@ class Login extends Component {
 					</Form.Field>
 					<Button type="submit">Login</Button>
 				</Form>
+				<div style={{ marginTop: '2em' }}>
+					Don't have an account?{' '}
+					<Link to={'/register'}>Create an Account</Link>
+				</div>
 			</Container>
 		);
 	}

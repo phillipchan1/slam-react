@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // pages
 import Login from './components/Pages/Login/Login';
+import Registration from './components/Pages/Registration/Registration';
 import UserProfile from './components/Pages/UserProfile/UserProfile';
 import Slams from './components/Pages/Slams/Slams';
 import Slam from './components/Pages/Slam/Slam';
@@ -69,6 +70,17 @@ class App extends Component {
 							path="/login"
 							render={props => (
 								<Login
+									{...props}
+									successfulLogin={this.handleSuccessfulLogin.bind(
+										this
+									)}
+								/>
+							)}
+						/>
+						<Route
+							path="/register"
+							render={props => (
+								<Registration
 									{...props}
 									successfulLogin={this.handleSuccessfulLogin.bind(
 										this
