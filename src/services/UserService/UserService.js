@@ -109,6 +109,19 @@ class UserService {
 			usersAndProgress: usersAndProgress
 		};
 	}
+
+	static getUsersAndProgressBySlamId(slamId) {
+		return [
+			{ user: this.users[0], slotsSubmitted: 1, totalSlots: 3 },
+			{ user: this.users[1], slotsSubmitted: 1, totalSlots: 2 },
+			{ user: this.users[2], slotsSubmitted: 1, totalSlots: 3 },
+			{ user: this.users[2], slotsSubmitted: 1, totalSlots: 3 },
+			{ user: this.users[0], slotsSubmitted: 1, totalSlots: 3 },
+			{ user: this.users[1], slotsSubmitted: 1, totalSlots: 2 },
+			{ user: this.users[2], slotsSubmitted: 1, totalSlots: 3 },
+			{ user: this.users[2], slotsSubmitted: 1, totalSlots: 3 }
+		];
+	}
 }
 
 export default UserService;

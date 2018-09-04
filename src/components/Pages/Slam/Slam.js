@@ -4,6 +4,8 @@ import { Header, Item, Divider, Grid, Modal } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import SlotService from '../../../services/SlotService/SlotService';
 import Slot from '../../Molecules/Slot/Slot';
+import UsersAndProgress from '../../Organisms/UsersAndProgress/UsersAndProgress';
+import UserService from '../../../services/UserService/UserService';
 
 class Slam extends Component {
 	constructor(props) {
@@ -25,6 +27,12 @@ class Slam extends Component {
 		this.setState({
 			slots: SlotService.getSlotsBySlamId(this.props.match.params.id)
 		});
+
+		this.setState({
+			usersAndProgress: UserService.getUsersAndProgressBySlamId(
+				this.props.match.params.id
+			)
+		});
 	}
 
 	render() {
@@ -38,6 +46,11 @@ class Slam extends Component {
 				/>
 				<Header as="h1">{this.state.name}</Header>
 				<Header.Subheader>{this.state.description}</Header.Subheader>
+				<Divider />
+				<UsersAndProgress
+					usersAndProgress={this.state.usersAndProgress}
+				/>
+
 				<Divider />
 
 				<div className="slot-container">

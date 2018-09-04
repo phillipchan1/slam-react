@@ -3,8 +3,8 @@ import { Item, Modal, Header, Button } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import SubmissionService from '../../../services/SubmissionService/SubmissionService';
 import UserService from '../../../services/UserService/UserService';
+import UsersAndProgress from '../../Organisms/UsersAndProgress/UsersAndProgress';
 import UserAndProgress from '../../Molecules/UserAndProgress/UserAndProgress';
-import { Link } from 'react-router-dom';
 import AddEditSubmission from '../../Organisms/AddEditSubmission/AddEditSubmission';
 
 class Slot extends Component {
@@ -54,20 +54,7 @@ class Slot extends Component {
 						Users Participating
 					</Header>
 					<div className="user-and-progress-container">
-						{this.state.usersAndProgress.usersAndProgress.map(
-							usersAndProgress => {
-								return (
-									<UserAndProgress
-										{...usersAndProgress}
-										totalSlots={
-											this.state.usersAndProgress
-												.slotsInSlam
-										}
-										key={usersAndProgress.user.id}
-									/>
-								);
-							}
-						)}
+						{/* {this.state.usersAndProgress.usersAndProgress.map( */}
 					</div>
 				</div>
 			</Item>

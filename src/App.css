@@ -18,13 +18,10 @@
       text-align: left; }
   .slot .users-container {
     width: 50%; }
-  .slot .user-and-progress-container {
-    display: flex;
-    flex-wrap: wrap; }
 
 .user-progress-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 0.7em;
   font-size: 0.7em;
   border-radius: 4px;
@@ -36,7 +33,10 @@
   .user-progress-card header {
     margin-right: 0.5em;
     font-weight: bold;
-    white-space: nowrap; }
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .user-progress-card .ui.progress {
     margin-bottom: 0; }
     .user-progress-card .ui.progress .bar {
@@ -44,6 +44,12 @@
       font-size: 0.9em; }
   .user-progress-card .user-and-progress-content {
     flex: 1 1 auto; }
+
+.users-and-progress-wrapper {
+  padding: 3em 0; }
+  .users-and-progress-wrapper .users-and-progress-container {
+    display: flex;
+    flex-wrap: wrap; }
 
 .slot-container {
   display: flex;

@@ -10,10 +10,10 @@ class UserAndProgress extends Component {
 				to={`/user/${this.props.user.id}`}
 			>
 				<header>
-					{/* <Image avatar src={this.props.user.imageUrl} /> */}
-					<List.Header as="a">{this.props.user.name}</List.Header>
+					<Image avatar src={this.props.user.imageUrl} />
 				</header>
 				<div className="user-and-progress-content">
+					<List.Header as="a">{this.props.user.name}</List.Header>
 					<Progress
 						percent={Math.round(
 							(this.props.slotsSubmitted /
