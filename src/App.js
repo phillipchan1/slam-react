@@ -65,6 +65,8 @@ class App extends Component {
 						<Route
 							path="/slam/:id/:submissionId?"
 							component={Slam}
+							isAuthenticated={this.state.isAuthenticated}
+							currentUser={this.state.currentUser}
 						/>
 						<Route
 							path="/login"

@@ -14,8 +14,6 @@ class Slam extends Component {
 		this.state = {
 			name: '',
 			description: '',
-			currentUser: {},
-			isAuthenticated: false,
 			slots: [],
 			modalOpen: false
 		};
@@ -35,6 +33,10 @@ class Slam extends Component {
 		});
 	}
 
+	componentWillReceiveProps() {
+		console.log('componentwillreceiveprops');
+	}
+
 	render() {
 		return (
 			<div>
@@ -50,7 +52,6 @@ class Slam extends Component {
 				<UsersAndProgress
 					usersAndProgress={this.state.usersAndProgress}
 				/>
-
 				<Divider />
 
 				<div className="slot-container">
@@ -61,6 +62,8 @@ class Slam extends Component {
 									{...slot}
 									slamId={this.props.match.params.id}
 									key={slot.id}
+									currentUser={this.props.currentUser}
+									isAuthenticated={this.props.isAuthenticated}
 								/>
 								<Divider />
 							</div>

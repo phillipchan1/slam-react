@@ -41,21 +41,19 @@ class Slot extends Component {
 					<div className="slot-information-container">
 						<Item.Header as="h3">{this.props.name}</Item.Header>
 						<Item.Meta>{this.props.description}</Item.Meta>
-
-						<Modal trigger={<a href="#">Submit a Submission!</a>}>
-							<Modal.Content image>
-								<AddEditSubmission />
-							</Modal.Content>
-						</Modal>
 					</div>
 				</header>
+				{this.props.isAuthenticated ? 'logged in' : 'not logged in'}
 				<div className="users-container">
 					<Header as="h4" style={{ textAlign: 'left' }}>
-						Users Participating
+						Your Submission
 					</Header>
-					<div className="user-and-progress-container">
-						{/* {this.state.usersAndProgress.usersAndProgress.map( */}
-					</div>
+
+					<Modal trigger={<a href="#">Submit a Submission!</a>}>
+						<Modal.Content image>
+							<AddEditSubmission />
+						</Modal.Content>
+					</Modal>
 				</div>
 			</Item>
 		);
