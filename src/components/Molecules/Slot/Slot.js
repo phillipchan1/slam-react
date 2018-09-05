@@ -43,18 +43,21 @@ class Slot extends Component {
 						<Item.Meta>{this.props.description}</Item.Meta>
 					</div>
 				</header>
-				{this.props.isAuthenticated ? 'logged in' : 'not logged in'}
-				<div className="users-container">
-					<Header as="h4" style={{ textAlign: 'left' }}>
-						Your Submission
-					</Header>
-
-					<Modal trigger={<a href="#">Submit a Submission!</a>}>
-						<Modal.Content image>
-							<AddEditSubmission />
-						</Modal.Content>
-					</Modal>
-				</div>
+				{this.props.isAuthenticated ? (
+					<div className="users-container">
+						logged in
+						<Header as="h4" style={{ textAlign: 'left' }}>
+							Your Submission
+						</Header>
+						<Modal trigger={<a href="#">Submit a Submission!</a>}>
+							<Modal.Content image>
+								<AddEditSubmission />
+							</Modal.Content>
+						</Modal>
+					</div>
+				) : (
+					''
+				)}
 			</Item>
 		);
 	}
