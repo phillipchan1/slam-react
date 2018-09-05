@@ -1,0 +1,17 @@
+.add-edit-submission-wrapper {
+	display: flex;
+}
+
+.submission-results {
+	height: 200px;
+	padding: 0 1em;
+	display: flex;
+
+	aside {
+		margin: 0 0.5em;
+
+		&.selected {
+			border: 4px solid blue;
+		}
+	}
+}
