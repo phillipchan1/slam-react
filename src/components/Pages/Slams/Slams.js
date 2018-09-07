@@ -10,6 +10,7 @@ import {
 	Input,
 	Grid
 } from 'semantic-ui-react';
+import axios from 'axios';
 
 class Slams extends Component {
 	constructor(props) {
@@ -24,11 +25,10 @@ class Slams extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({
-			slams: SlamService.getSlams()
+		axios.get(`http://localhost:3000/slams`).then(res => {
+			const slams = res.data;
+			this.setState(slams);
 		});
-
-		console.log(this.props);
 
 		if (this.props.currentUser) {
 			this.setState({

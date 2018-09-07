@@ -14,12 +14,12 @@ class SlamsList extends Component {
 				{this.props.slams.map(slam => {
 					return (
 						<Link
-							to={`/slam/${slam.id}`}
+							to={`/slam/${slam._id}`}
 							style={{
 								width: '100%',
 								marginBottom: '1em'
 							}}
-							key={slam.id}
+							key={slam._id}
 						>
 							<Slam {...slam} />
 						</Link>

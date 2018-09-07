@@ -1,8 +1,14 @@
+// libraries
 import React, { Component } from 'react';
+import axios from 'axios';
+
+//services
 import SlamService from '../../../services/SlamService/SlamService';
+import SlotService from '../../../services/SlotService/SlotService';
+
+// components
 import { Header, Item, Divider, Grid, Modal } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
-import SlotService from '../../../services/SlotService/SlotService';
 import Slot from '../../Molecules/Slot/Slot';
 import UsersAndProgress from '../../Organisms/UsersAndProgress/UsersAndProgress';
 import UserService from '../../../services/UserService/UserService';
@@ -12,7 +18,7 @@ class Slam extends Component {
 		super(props);
 
 		this.state = {
-			name: '',
+			name: ' ',
 			description: '',
 			slots: [],
 			modalOpen: false
@@ -20,6 +26,13 @@ class Slam extends Component {
 	}
 
 	componentWillMount() {
+		axios
+			.get(`http://localhost:3000/slams/${this.props.match.params.id}`)
+			.then(res => {
+				let slam = res.data.slam[0];
+				this.setState(slam);
+			});
+
 		this.setState(SlamService.getSlam(this.props.match.params.id));
 
 		this.setState({
