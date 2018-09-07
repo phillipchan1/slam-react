@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import UserService from '../../../services/UserService/UserService';
+
 import { Container, Form, Message, Header, Divider } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import SlamsList from '../../Organisms/SlamsList/SlamsList';
@@ -13,7 +15,7 @@ class UserProfile extends Component {
 			currentUser: {
 				description: '',
 				id: undefined,
-				name: '',
+				name: 'undefined',
 				email: '',
 				profilePicture: ''
 			},
@@ -23,22 +25,31 @@ class UserProfile extends Component {
 	}
 
 	componentWillMount() {
-		this.setState(
-			{
-				currentUser: UserService.getUser(this.props.match.params.id)
-			},
-			() => {
-				this.setState({
-					slamsUserIsIn: SlamService.getSlamsByUserId(
-						this.state.currentUser.id
-					)
-				});
-			}
-		);
-	}
+		axios
+			.get(`http://localhost:3000/users/${this.props.match.params.id}`)
+			.then(res => {
+				let user = res.data.user;
 
-	componentDidMount() {
-		this.setState({});
+				console.log(user);
+				this.setState(
+					{
+						currentUser: user
+					},
+					() => {
+						axios
+							.get(
+								`http://localhost:3000/users/${
+									this.props.match.params.id
+								}/slams`
+							)
+							.then(res => {
+								console.log(res);
+
+								this.setState({ slamsUserIsIn: res.data });
+							});
+					}
+				);
+			});
 	}
 
 	handleChange(e) {
@@ -88,10 +99,10 @@ class UserProfile extends Component {
 
 				<Divider section hidden />
 
-				<SlamsList
+				{/* <SlamsList
 					style={{ marginTop: '1em' }}
 					slams={this.state.slamsUserIsIn}
-				/>
+				/> */}
 
 				{/* {this.state.successfullyUpdated ? (
 					<Message info> Succesfully Updated </Message>

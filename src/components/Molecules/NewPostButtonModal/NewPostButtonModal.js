@@ -31,10 +31,14 @@ class NewPostButtonModal extends Component {
 		});
 
 		const authCookie = {
-			"connect.sid": Cookies.get('connect.sid')
+			'connect.sid': Cookies.get('connect.sid')
 		};
 
-		axios.post(`http://localhost:3000/posts`, Object.assign({}, this.state.post, authCookie));
+		axios.post(
+			`http://localhost:3000/posts`,
+			Object.assign({}, this.state.post, authCookie),
+			{ withCredentials: true }
+		);
 	}
 
 	handleOpen = () => this.setState({ modalOpen: true });

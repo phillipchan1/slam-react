@@ -22,7 +22,9 @@ class Navigation extends Component {
 					>
 						<Dropdown.Menu>
 							<Dropdown.Item text="User Profile">
-								<Link to={`/user/${this.props.currentUser.id}`}>
+								<Link
+									to={`/user/${this.props.currentUser._id}`}
+								>
 									User Profile
 								</Link>
 							</Dropdown.Item>
