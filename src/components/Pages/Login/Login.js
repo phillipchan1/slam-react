@@ -4,6 +4,8 @@ import UserService from '../../../services/UserService/UserService';
 import { Button, Container, Form, Message } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
+import { userSecret } from 'react-icons-kit/fa';
 
 class Login extends Component {
 	constructor(props) {
@@ -26,20 +28,12 @@ class Login extends Component {
 	}
 
 	handleSubmit() {
-		AuthService.login(this.state, response => {
-			console.log(response);
+		axios.post(`http://localhost:3000/login`, this.state).then(res => {
+			this.setState({
+				loginSuccess: true
+			});
 
-			if (response.success) {
-				this.setState({
-					loginSuccess: true
-				});
-
-				this.props.successfulLogin(UserService.getUser(1));
-			} else {
-				this.setState({
-					errorMessage: response.message
-				});
-			}
+			this.props.successfulLogin(UserService.getUser(1));
 		});
 	}
 
