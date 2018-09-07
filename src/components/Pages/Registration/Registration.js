@@ -7,6 +7,7 @@ import {
 	Grid,
 	Header
 } from 'semantic-ui-react';
+import axios from 'axios';
 
 class Registration extends Component {
 	constructor(props) {
@@ -20,7 +21,15 @@ class Registration extends Component {
 	}
 
 	handleSubmit() {
-		console.log();
+		axios
+			.post(`http://localhost:3000/register`, {
+				name: this.state.name,
+				email: this.state.email,
+				password: this.state.password
+			})
+			.then(res => {
+				console.log(res);
+			});
 	}
 
 	handleChange(e) {
