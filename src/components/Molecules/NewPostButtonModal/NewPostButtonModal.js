@@ -1,8 +1,12 @@
+// libraries
 import React, { Component } from 'react';
+import axios from 'axios';
+import PostService from '../../../services/PostService/PostService';
+
+// components
 import { Button, Modal, Form } from 'semantic-ui-react';
 import { Icon } from 'react-icons-kit';
 import { pencil } from 'react-icons-kit/fa/';
-import PostService from '../../../services/PostService/PostService';
 
 class NewPostButtonModal extends Component {
 	constructor(props) {
@@ -21,11 +25,13 @@ class NewPostButtonModal extends Component {
 	}
 
 	handleSubmit() {
-		console.log('submitted');
 		this.setState({
 			modalOpen: false
 		});
-		PostService.addNewPost(this.state.post);
+
+		axios.post(`http://localhost:3000/posts`, this.state.post);
+
+		// PostService.addNewPost(this.state.post);
 	}
 
 	handleOpen = () => this.setState({ modalOpen: true });

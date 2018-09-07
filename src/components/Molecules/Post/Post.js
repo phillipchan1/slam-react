@@ -1,7 +1,10 @@
+// libraries
 import React, { Component } from 'react';
+import Moment from 'react-moment';
+
+// components
 import { Card } from 'semantic-ui-react';
 import UserTab from '../../Atoms/UserTab/UserTab';
-import Moment from 'react-moment';
 
 class Post extends Component {
 	constructor(props) {
