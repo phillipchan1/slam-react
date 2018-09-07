@@ -28,13 +28,23 @@ class Login extends Component {
 	}
 
 	handleSubmit() {
-		axios.post(`http://localhost:3000/login`, this.state).then(res => {
-			this.setState({
-				loginSuccess: true
-			});
+		axios
+			.post(`http://localhost:3000/login`, this.state)
+			.then(res => {
+				this.setState({
+					loginSuccess: true
+				});
 
-			this.props.successfulLogin(UserService.getUser(1));
-		});
+				let userId = res.data;
+
+				return userId;
+			})
+			.then(userId => {
+				axios.get(`http://localhost:3000/users/${userId}`).then(res => {
+					let user = res.data.user;
+					this.props.successfulLogin(user);
+				});
+			});
 	}
 
 	render() {

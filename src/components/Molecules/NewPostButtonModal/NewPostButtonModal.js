@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PostService from '../../../services/PostService/PostService';
+import * as Cookies from 'es-cookie';
 
 // components
 import { Button, Modal, Form } from 'semantic-ui-react';
@@ -29,9 +30,11 @@ class NewPostButtonModal extends Component {
 			modalOpen: false
 		});
 
-		axios.post(`http://localhost:3000/posts`, this.state.post);
+		const authCookie = {
+			"connect.sid": Cookies.get('connect.sid')
+		};
 
-		// PostService.addNewPost(this.state.post);
+		axios.post(`http://localhost:3000/posts`, Object.assign({}, this.state.post, authCookie));
 	}
 
 	handleOpen = () => this.setState({ modalOpen: true });
