@@ -90,6 +90,7 @@ class UserProfile extends Component {
 					<Header.Subheader>
 						{this.state.currentUser.description}
 					</Header.Subheader>
+					{this.props.isAuthenticated ? 'logged in' : 'not logged in'}
 				</Header>
 				<Divider section />
 
