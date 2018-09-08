@@ -3,14 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // components
-import {
-	Container,
-	Form,
-	Message,
-	Button,
-	Header,
-	Divider
-} from 'semantic-ui-react';
+import { Form, Message, Button } from 'semantic-ui-react';
 
 class EditUserProfile extends Component {
 	constructor(props) {

@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom';
 import Slam from '../../Molecules/Slam/Slam';
 
 class SlamsList extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 			<Card.Group>

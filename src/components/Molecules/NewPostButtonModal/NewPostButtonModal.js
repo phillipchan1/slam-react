@@ -1,7 +1,6 @@
 // libraries
 import React, { Component } from 'react';
 import axios from 'axios';
-import PostService from '../../../services/PostService/PostService';
 import * as Cookies from 'es-cookie';
 
 // components

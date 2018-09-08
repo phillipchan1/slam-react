@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-	Button,
-	Container,
-	Form,
-	Message,
-	Grid,
-	Header
-} from 'semantic-ui-react';
+import { Button, Container, Form, Grid, Header } from 'semantic-ui-react';
 import axios from 'axios';
 
 class Registration extends Component {

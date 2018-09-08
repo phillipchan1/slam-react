@@ -7,7 +7,7 @@ import SlamService from '../../../services/SlamService/SlamService';
 import SlotService from '../../../services/SlotService/SlotService';
 
 // components
-import { Header, Item, Divider, Grid, Modal } from 'semantic-ui-react';
+import { Header, Divider, Grid } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import Slot from '../../Molecules/Slot/Slot';
 import UsersAndProgress from '../../Organisms/UsersAndProgress/UsersAndProgress';

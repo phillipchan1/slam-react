@@ -6,7 +6,6 @@ class Slam extends Component {
 		return (
 			<Card
 				fluid
-				className="slam"
 				centered={false}
 				className="slam"
 				onClick={this.props.onClick}

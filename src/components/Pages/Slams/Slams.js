@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import SlamService from '../../../services/SlamService/SlamService';
 import SlamsList from '../../Organisms/SlamsList/SlamsList';
-import {
-	Menu,
-	Search,
-	Container,
-	Header,
-	Form,
-	Input,
-	Grid
-} from 'semantic-ui-react';
+import { Menu, Container, Header, Form, Input, Grid } from 'semantic-ui-react';
 import axios from 'axios';
 
 class Slams extends Component {

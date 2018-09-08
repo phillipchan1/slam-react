@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Item, Modal, Header, Button } from 'semantic-ui-react';
+import { Item, Modal, Header } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import SubmissionService from '../../../services/SubmissionService/SubmissionService';
 import UserService from '../../../services/UserService/UserService';
-import UsersAndProgress from '../../Organisms/UsersAndProgress/UsersAndProgress';
-import UserAndProgress from '../../Molecules/UserAndProgress/UserAndProgress';
 import AddEditSubmission from '../../Organisms/AddEditSubmission/AddEditSubmission';
 
 class Slot extends Component {
@@ -48,7 +46,11 @@ class Slot extends Component {
 						<Header as="h4" style={{ textAlign: 'left' }}>
 							Your Submission
 						</Header>
-						<Modal trigger={<a href="#">Submit a Submission!</a>}>
+						<Modal
+							trigger={
+								<a href="javascript;">Submit a Submission!</a>
+							}
+						>
 							<Modal.Content image>
 								<AddEditSubmission />
 							</Modal.Content>

@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import { Container, Form, Message, Header, Divider } from 'semantic-ui-react';
+import { Container, Header, Divider } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
 import SlamsList from '../../Organisms/SlamsList/SlamsList';
-import SlamService from '../../../services/SlamService/SlamService';
 
 class UserProfile extends Component {
 	constructor(props) {

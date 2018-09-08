@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import AuthService from '../../../services/AuthService/AuthService';
-import UserService from '../../../services/UserService/UserService';
 import { Button, Container, Form, Message } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { userSecret } from 'react-icons-kit/fa';
 
 class Login extends Component {
 	constructor(props) {

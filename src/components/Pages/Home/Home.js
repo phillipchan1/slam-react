@@ -4,7 +4,6 @@ import SubmissionService from '../../../services/SubmissionService/SubmissionSer
 import Submission from '../../Molecules/Submission/Submission';
 import Post from '../../Molecules/Post/Post';
 import ArrayUtils from '../../../utils/ArrayUtils';
-import { Card } from 'semantic-ui-react';
 import Masonry from 'react-masonry-component';
 
 class Home extends Component {
