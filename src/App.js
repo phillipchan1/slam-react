@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Pages/Login/Login';
 import Registration from './components/Pages/Registration/Registration';
 import UserProfile from './components/Pages/UserProfile/UserProfile';
+import EditUserProfile from './components/Pages/EditUserProfile/EditUserProfile';
 import Slams from './components/Pages/Slams/Slams';
 import Slam from './components/Pages/Slam/Slam';
 import Home from './components/Pages/Home/Home';
@@ -56,6 +57,11 @@ class App extends Component {
 							isAuthenticated={this.state.isAuthenticated}
 						/>
 						<Route path="/home" component={Home} />
+						<ProtectedRoute
+							path="/edituser/:id"
+							isAuthenticated={this.state.isAuthenticated}
+							component={EditUserProfile}
+						/>
 						<Route
 							path="/user/:id"
 							render={props => (

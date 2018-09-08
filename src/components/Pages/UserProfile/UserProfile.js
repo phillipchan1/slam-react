@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import UserService from '../../../services/UserService/UserService';
+import { Link } from 'react-router-dom';
 
 import { Container, Form, Message, Header, Divider } from 'semantic-ui-react';
 import UserAvatar from 'react-user-avatar';
@@ -19,7 +19,6 @@ class UserProfile extends Component {
 				email: '',
 				profilePicture: ''
 			},
-			successfullyUpdated: false,
 			slamsUserIsIn: []
 		};
 	}
@@ -30,7 +29,6 @@ class UserProfile extends Component {
 			.then(res => {
 				let user = res.data.user;
 
-				console.log(user);
 				this.setState(
 					{
 						currentUser: user
@@ -50,23 +48,6 @@ class UserProfile extends Component {
 					}
 				);
 			});
-	}
-
-	handleChange(e) {
-		var obj = {};
-		obj[e.target.name] = e.target.value;
-
-		this.setState({
-			currentUser: Object.assign({}, obj)
-		});
-	}
-
-	handleProfileUpdate() {
-		UserService.updateUser(this.state.currentUser, () => {
-			this.setState({
-				successfullyUpdated: true
-			});
-		});
 	}
 
 	render() {
@@ -90,7 +71,17 @@ class UserProfile extends Component {
 					<Header.Subheader>
 						{this.state.currentUser.description}
 					</Header.Subheader>
-					{this.props.isAuthenticated ? 'logged in' : 'not logged in'}
+					<Header.Subheader>
+						{this.props.isAuthenticated ? (
+							<Link
+								to={`/edituser/${this.state.currentUser._id}`}
+							>
+								Edit
+							</Link>
+						) : (
+							'not logged in'
+						)}
+					</Header.Subheader>
 				</Header>
 				<Divider section />
 
@@ -100,39 +91,17 @@ class UserProfile extends Component {
 
 				<Divider section hidden />
 
-				{/* <SlamsList
-					style={{ marginTop: '1em' }}
-					slams={this.state.slamsUserIsIn}
-				/> */}
-
-				{/* {this.state.successfullyUpdated ? (
-					<Message info> Succesfully Updated </Message>
+				{this.state.slamsUserIsIn.length > 0 ? (
+					<SlamsList
+						style={{ marginTop: '1em' }}
+						slams={this.state.slamsUserIsIn}
+					/>
 				) : (
-					''
-				)}{' '} */}
-				{/* <Form>
-					<Form.Field>
-						<label> Name </label>{' '}
-						<input
-							value={this.state.currentUser.name}
-							placeholder="First Name"
-							name="name"
-							onChange={this.handleChange.bind(this)}
-						/>{' '}
-					</Form.Field>{' '}
-					<Form.Field>
-						<label> About </label>{' '}
-						<Form.TextArea
-							value={this.state.currentUser.description}
-							placeholder="Tell us more about you..."
-							name="description"
-							onChange={this.handleChange.bind(this)}
-						/>{' '}
-					</Form.Field>{' '}
-					<Button onClick={this.handleProfileUpdate.bind(this)}>
-						Update{' '}
-					</Button>{' '}
-				</Form>{' '} */}
+					<div>
+						Not in any slams. Consider{' '}
+						<Link to={`/slams`}> joining one.</Link>
+					</div>
+				)}
 			</Container>
 		);
 	}
